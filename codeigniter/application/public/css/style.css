@@ -1,0 +1,106 @@
+@font-face
+{
+	font-family: "Champagne Limousines Bold" ;
+	src: url(../fonts/champagne_limousines/Champagne_Limousines_Bold.ttf) format("truetype");
+}
+
+html, body
+{
+	height: 100% !important;
+}
+
+body
+{
+	background-color: #f5f5f5 !important;
+}
+
+nav
+{
+	background-color: #3B5998 !important;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+	color: white;
+	width: 100%;
+	z-index: 10;
+}
+
+#filterButtonContainer, nav
+{
+	position: fixed !important;
+}
+
+#filterButtonContainer
+{
+	width: 100%;
+	z-index: 10;
+}
+
+#filterButton
+{
+	position: absolute; /* postulat de départ */
+	top: 50%; left: 50%; /* à 50%/50% du parent référent */
+	transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+	background-color: #f8bbd0;
+	border: 1px solid #f8bbd0;
+	text-transform: uppercase;
+	letter-spacing: 7px;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 10px;
+	transition: all .16s ease-in-out;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+	border-radius: 2px;
+
+}
+
+#filterButton:hover
+{
+	background-color: #f48fb1;
+	border: 1px solid #f48fb1;
+	transition: all .16s ease-in-out;
+}
+
+#linkOpenFoodFacts
+{
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 2em;
+	color: white;
+	transition: all .16s ease-in-out;
+}
+
+#linkOpenFoodFacts:hover
+{
+	color: #c2cfea;
+	transition: all .16s ease-in-out;
+}
+
+form > label
+{
+	font-size: 1.3em;
+}
+
+.navbar-user
+{
+	font-size: 1.7em;
+	margin: 0px 15px;
+}
+
+.navbar-logo
+{
+	height: 50px;
+	width: auto;
+}
+
+/* ============== */
+/* CSS OVERRIDE */
+/* ============== */
+
+.form-control {
+	width: auto;
+	display: inline !important;
+}
+
+caption {
+	text-align: center !important;
+	caption-side: top !important;
+}

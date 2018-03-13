@@ -101,7 +101,7 @@ $db['default'] = array(
     'username' => 'postgres',
     'password' => 'admin',
     'database' => 'postgres',
-    'dbdriver' => 'pgsql',
+    'dbdriver' => 'postgre',
     'dbprefix' => 'visagelivre.',
     'pconnect' => FALSE,
     'db_debug' => (ENVIRONMENT !== 'production'),

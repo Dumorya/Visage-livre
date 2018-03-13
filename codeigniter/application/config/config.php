@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://webetuinfo.iutlan.univ-rennes1.fr/szevocji/codeigniter';
-$config['base_url'] = 'localhost/visage_livre/codeigniter';
+$config['base_url'] = 'localhost/visage_livre/codeigniter/';
 
 /*
 |--------------------------------------------------------------------------
