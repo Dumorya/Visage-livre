@@ -1,6 +1,6 @@
 <?php
 
-echo 'about app'
+echo 'about the app'
 
 ?>
 
