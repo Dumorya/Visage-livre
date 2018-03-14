@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://webetuinfo.iutlan.univ-rennes1.fr/szevocji/codeigniter';
-$config['base_url'] = 'localhost/visage_livre/codeigniter/';
+$config['base_url'] = 'http://webetuinfo.iutlan.univ-rennes1.fr/casselci/visage_livre/codeigniter';
+//$config['base_url'] = 'localhost/visage_livre/codeigniter/';
 
 /*
 |--------------------------------------------------------------------------

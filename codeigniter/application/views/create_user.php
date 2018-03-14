@@ -5,25 +5,22 @@
  * Date: 13/03/2018
  * Time: 21:42
  */
-
-$firstname = null;
-$lastname= null;
-$eamil = null;
-
 ?>
 
-<h2>Créer un compte</h2>
+<div>
+	<h2>Créer un compte</h2>
 
-<?php echo validation_errors(); ?>
-<?php echo form_open('todo/index') ?>
-    <label for="nickname">Identifiant</label>
-    <input type ="input" name ="nickname" />
+	<?php echo validation_errors(); ?>
+	<?php echo form_open('todo/index') ?>
+		<label for="create_nickname">Identifiant</label>
+		<input type ="text" name ="create_nickname" required/>
 
-    <label for="pass">Mot de passe</label>
-    <input type ="input" name ="pass" />
+		<label for="create_pass">Mot de passe</label>
+		<input type ="password" name ="create_pass" required/>
 
-    <label for="mail">Adresse mail</label>
-    <input type ="input" name ="mail" />
+		<label for="create_email">Adresse mail</label>
+		<input type ="email" name ="create_email" required/>
 
-    <input type ="submit" name ="submit" value ="Créer un compte" />
-</form >
+		<input type ="submit" name ="submit" value ="Créer un compte" />
+	</form >
+</div>

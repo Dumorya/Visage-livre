@@ -73,29 +73,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-//$db['default'] = array(
-//	'dsn'	=> '',
-//	'hostname' => 'servbdd.iutlan.etu.univ-rennes1.fr',
-//	'username' => 'szevocji',
-//	'password' => 'fight0club!',
-//	'database' => 'pg_szevocji',
-//	'dbdriver' => 'postgre',
-//	'dbprefix' => 'todosimple.',
-//	'pconnect' => FALSE,
-//	'db_debug' => (ENVIRONMENT !== 'production'),
-//	'cache_on' => FALSE,
-//	'cachedir' => '',
-//	'char_set' => 'utf8',
-//	'dbcollat' => 'utf8_general_ci',
-//	'swap_pre' => '',
-//	'encrypt' => FALSE,
-//	'compress' => FALSE,
-//	'stricton' => FALSE,
-//	'failover' => array(),
-//	'save_queries' => TRUE
-//);
-
 $db['default'] = array(
+	'dsn'	=> '',
+	'hostname' => 'servbdd.iutlan.etu.univ-rennes1.fr',
+	'username' => 'casselci',
+	'password' => 'wowaZ6**',
+	'database' => 'pg_casselci',
+	'dbdriver' => 'postgre',
+	'dbprefix' => 'visagelivre.',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+/*$db['default'] = array(
     'dsn'	=> '',
     'hostname' => 'localhost',
     'username' => 'postgres',
@@ -115,4 +115,4 @@ $db['default'] = array(
     'stricton' => FALSE,
     'failover' => array(),
     'save_queries' => TRUE
-);
+);*/
