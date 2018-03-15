@@ -62,7 +62,7 @@ class Visage_livre_model extends CI_Model{
 		$this->db->select('_document.content, _document.iddoc');
 		$this->db->from('_document');
 		$this->db->join('_comment','_document.iddoc=_comment.iddoc','inner join');
-		$this->db->where('ref',$ref);
+		$this->db->where('ref',$iddoc);
 		$answer=$this->db->get();
 		return $answer->result_array();
 	}
@@ -95,12 +95,20 @@ class Visage_livre_model extends CI_Model{
 		$query=$this->db->get();
 		return $query->result_array();
 	}
-
+	//affiche les demandes d'amitié reçues par nickname
+	public function visage_livre_get_friend_request($nickname){
+		$this->db->select('_friendrequest.nickname');
+		$this->db->from('_friendrequest');
+		$this->db->where('_friendrequest.target',$nickname);
+		$query=$this->db->get();
+		return $query->result_array();
+	}
+	
 	//ajouter un document (post ou comment)
-	public function visage_livre_add_document($content, $auteur){
+	public function visage_livre_add_document($content){
 		$data = array(
 			'content' => $content,
-			'auteur' => $auteur
+			'auteur' => get_user()
 		);
 		return $this->db->insert('_document',$data);
 	}
@@ -160,7 +168,32 @@ class Visage_livre_model extends CI_Model{
 		);
 		return $this->db->insert('_friendrequest',$data);
 	}
-	
+	public function visage_livre_delete_friend_request($nickname,$target){
+		$data = array(
+			'nickname' => $target,
+			'target' => $nickname
+		);
+		return $this->db->delete('_friendrequest',$data);
+	}
+	public function visage_livre_accept_friend_request($nickname,$target){
+		$data = array(
+			'nickname' => $nickname,
+			'friend' => $friend
+		);
+		return $this->db->insert('_friendof',$data);
+	}
+	public function visage_livre_delete_friend($nickname,$target){
+		$data = array(
+			'nickname' => $nickname,
+			'friend' => $friend
+		);
+		$data2 = array(
+			'nickname' => $friend,
+			'friend' => $nickname
+		);
+		$this->db->delete('_friendof',$data);
+		$this->db->delete('_friendof',$data2);
+	}
 	
 }
 ?>
