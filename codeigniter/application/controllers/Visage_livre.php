@@ -56,8 +56,7 @@ class Visage_livre extends CI_Controller {
             $data['content'] = 'page_home';
         }
 
-        $data['user'] = $this->visage_livre_model->get_user();
-		$data['postlist'] = $this->visage_livre_model->visage_livre_get_post();
+		$data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend();
 		$data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
 		
 		
@@ -79,8 +78,6 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
 		}
-	}
-	public function create_comment($ref){
 		
 		//creer un comment
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
@@ -90,7 +87,7 @@ class Visage_livre extends CI_Controller {
 			$contentC = $this->input->post('content');
 			//$ref = $this->input->post('ref');
 			$this->visage_livre_model->visage_livre_add_document($contentC);
-			$this->visage_livre_model->visage_livre_add_comment($ref);
+			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 		}
 	}
 

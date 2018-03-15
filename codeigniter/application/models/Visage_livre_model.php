@@ -5,11 +5,10 @@ class Visage_livre_model extends CI_Model{
 		$this->load->database();
 	}
 
-    public function get_user()
-    {
-        $query = $this->db->get('_user');
-        return $query->result_array();
-    }
+	public function get_user_connected(){
+		
+		return 'titi';
+	}
 
     public function create_user($nickname, $pass, $email)
     {
@@ -76,7 +75,8 @@ class Visage_livre_model extends CI_Model{
 	}
 
 	//afficher les posts des amis du user en param
-	public function visage_livre_get_post_friend($name){
+	public function visage_livre_get_post_friend(){
+		$name = $this->get_user_connected();
 		$this->db->select('_document.auteur,_document.content,_document.iddoc');
 		$this->db->from('_document');
 		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
@@ -90,7 +90,7 @@ class Visage_livre_model extends CI_Model{
 
 	//afficher la liste des utilisateurs
 	public function visage_livre_get_user(){
-		$this->db->select('_user.nickname');
+		$this->db->select('_user.nickname,_user.pass,_user.email');
 		$this->db->from('_user');
 		$query=$this->db->get();
 		return $query->result_array();
@@ -108,7 +108,7 @@ class Visage_livre_model extends CI_Model{
 	public function visage_livre_add_document($content){
 		$data = array(
 			'content' => $content,
-			'auteur' => get_user()
+			'auteur' => get_user_connected()
 		);
 		return $this->db->insert('_document',$data);
 	}
