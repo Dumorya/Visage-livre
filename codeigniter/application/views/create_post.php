@@ -1,5 +1,5 @@
 <div>
-	<h2>Ajouter un post</h2>
+	<h2>Exprimez vous <?php echo $this->visage_livre_model->get_user_connected();?></h2>
 
 	<?php echo validation_errors(); ?>
 	<?php echo form_open('visage_livre/create_post') ?>
