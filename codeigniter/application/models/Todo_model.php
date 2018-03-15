@@ -36,5 +36,14 @@
                         ->get()
                         ->result();
         }
+        
+        public function get_email($connect_nickname)
+        {
+			return $this->db->select('email')
+						->from('_user')
+                        ->where('nickname', $connect_nickname)
+                        ->get()
+                        ->result();
+		}
 	}
 ?>
