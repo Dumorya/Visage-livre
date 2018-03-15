@@ -47,6 +47,13 @@ class Visage_livre_model extends CI_Model{
 		return $answer->result_array();
 		
 	}
+	//afficher la liste des utilisateurs
+	public function visage_livre_get_user(){
+		$this->db->select('_user.nickname');
+		$this->db->from('_user');
+		$query=$this->db->get();
+		return $query->result_array();
+	}	
 	//ajouter un document (post ou comment)
 	public function visage_livre_add_document($content, $auteur){
 		$data = array(

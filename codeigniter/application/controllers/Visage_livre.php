@@ -40,7 +40,7 @@ class Visage_livre extends CI_Controller {
 		*/
 		
 		$name='titi';
-		$data['postlist']=$this->visage_livre_model->visage_livre_get_post_friend($name);
+		$data['postlist']=$this->visage_livre_model->visage_livre_get_post();
 
 		$this->load->vars($data);
 		$this->load->view('template');
