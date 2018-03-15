@@ -59,7 +59,8 @@ class Visage_livre extends CI_Controller {
 	//friend request
 	/*
 	public function send_friend_request($target){
-		$this->visage_livre_model->visage_livre_send_friend_request($target
+		$this->visage_livre_model->visage_livre_send_friend_request($target);
+		$this->index();
 	}*/
 }
 ?>

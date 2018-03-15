@@ -81,5 +81,16 @@ class Visage_livre_model extends CI_Model{
 		$this->db->delete('_comment',$data);
 		$this->db->delete('_document',$data);
 	}
+	
+	//friend request
+	
+	public function visage_livre_send_friend_request($nickname,$target){
+		$data = array(
+			'nickname' => $nickname,
+			'target' => $target
+		);
+		return $this->db->insert('_friendrequest',$data);
+	}
+	
 }
 ?>
