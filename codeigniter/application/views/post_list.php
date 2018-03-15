@@ -9,7 +9,6 @@
 		<?php echo $post_item['auteur']; ?><br/>
 		<?php echo $post_item['create_date']; ?><br/>
 		<?php echo $post_item['content']." "."(".$iddoc.")"." ";?>
-		<?php $this->load->view('comment_list',$iddoc);?>
 		<?php $this->load->view('create_comment',$iddoc);?>
 	<?php }
 	?>
