@@ -11,7 +11,7 @@
 	<h2>Créer un compte</h2>
 
 	<?php echo validation_errors(); ?>
-	<?php echo form_open('todo/index') ?>
+	<?php echo form_open('visage_livre/index') ?>
 		<label for="create_nickname">Identifiant</label>
 		<input type ="text" name ="create_nickname" required/>
 
