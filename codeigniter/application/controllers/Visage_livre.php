@@ -39,8 +39,8 @@ class Visage_livre extends CI_Controller {
 		}
 		*/
 		
-		
-		$data['postlist']=$this->visage_livre_model->visage_livre_get_post_comment();
+		$name='titi';
+		$data['postlist']=$this->visage_livre_model->visage_livre_get_post_friend($name);
 
 		$this->load->vars($data);
 		$this->load->view('template');
@@ -57,11 +57,11 @@ class Visage_livre extends CI_Controller {
 	}
 	
 	//friend request
-	/*
-	public function send_friend_request($target){
+	
+	public function send_friend_request($nickame,$target){
 		$this->visage_livre_model->visage_livre_send_friend_request($target);
 		$this->index();
-	}*/
+	}
 }
 ?>
 
