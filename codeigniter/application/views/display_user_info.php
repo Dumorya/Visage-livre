@@ -1,5 +1,5 @@
 <?php echo validation_errors(); ?>
-<?php echo form_open('todo/index') ?>
+<?php echo form_open('visage_livre/index') ?>
 	<input type="button" value="Déconnexion" name="logout"/>
 </form>
 

@@ -1,6 +1,5 @@
 <?php
-
-echo 'home app'
-
+$this->load->view('connection');
+$this->load->view('create_user');
 ?>
 
