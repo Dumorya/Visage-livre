@@ -58,6 +58,7 @@ class Visage_livre extends CI_Controller {
 
 		$data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend();
 		$data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
+		$data['user'] = $this->visage_livre_model->get_user_connected();
 		
 		
 		$this->load->vars($data);
