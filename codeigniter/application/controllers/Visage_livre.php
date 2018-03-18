@@ -5,11 +5,15 @@ class Visage_livre extends CI_Controller {
 		parent::__construct();
 		$this->load->model('visage_livre_model');
 		$this->load->helper('url');
-	}
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+    }
 	public function index(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->library('session');
+
 
         $data['title']='Créer un compte';
         $data['content'] = 'page_connection';
@@ -36,7 +40,7 @@ class Visage_livre extends CI_Controller {
         // Création d'un compte
         $this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
         $this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
-        $this->form_validation->set_rules('create_email' , 'Addresse mail' , 'required');
+        $this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
 
         if ($this->form_validation->run() !== FALSE)
         {
@@ -79,14 +83,13 @@ class Visage_livre extends CI_Controller {
 
     public function logout()
     {
-            echo 'je suis là';
-            $logout 		 = $this->input->post('logout');
+        $this->load->library('session');
 
-            $this->session->sess_destroy();
-            $data['content'] = 'home';
-			// ?? mettre le nom du user connecté a vide
-			$this->session->set_userdata(' ');
+		$this->session->sess_destroy();
+        // ?? mettre le nom du user connecté a vide
+        $this->session->set_userdata(' ');
 
+        $data['content'] = 'page_connection';
     }
 
 	//afficher les posts et les commentaires

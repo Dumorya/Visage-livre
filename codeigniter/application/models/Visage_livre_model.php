@@ -6,8 +6,9 @@ class Visage_livre_model extends CI_Model{
 	}
 
 	public function get_user_connected(){
-		
-		return $this->session->userdata('connect_nickname');
+        $this->load->library('session');
+
+        return $this->session->userdata('connect_nickname');
 	}
 
     public function create_user($nickname, $pass, $email)
