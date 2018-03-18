@@ -12,8 +12,9 @@ class Visage_livre extends CI_Controller {
         $this->load->library('session');
 
         $data['title']='Créer un compte';
-        $data['content'] = 'home';
+        $data['content'] = 'page_connection';
 
+		//connexion
         //Récupérer les données saisies envoyées en POST
         $this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
         $this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
@@ -29,7 +30,7 @@ class Visage_livre extends CI_Controller {
             $this->session->set_userdata('connect_pass', $connect_pass);
             $this->session->set_userdata('connect_email', serialize($connect_email[0]));
 
-            $data['content'] = 'display_user_info';
+            $data['content'] = 'page_home';
         }
 
         // Création d'un compte
@@ -52,44 +53,21 @@ class Visage_livre extends CI_Controller {
             $this->session->set_userdata('connect_pass', $connect_pass);
             $this->session->set_userdata('connect_email', $connect_email);
 
-            $data['content'] = 'display_user_info';
+            $data['content'] = 'page_home';
         }
 
-        $data['user'] = $this->visage_livre_model->get_user();
-
-		//creer un post
-//		$this->form_validation->set_rules ('content' , 'content' , 'required');
-//		$this->form_validation->set_rules ('auteur' , 'auteur' , 'required');
-//
-//		if ($this->form_validation->run()!== FALSE ) {
-//			$contentP = $this->input->post('content');
-//			$auteur = $this->input->post('auteur');
-//			$this->visage_livre_model->visage_livre_add_document($contentP,$auteur);
-//			$this->visage_livre_model->visage_livre_add_post();
-//		}
-
-		//creer un comment
-		/*
-		$this->form_validation->set_rules ('content' , 'content' , 'required');
-		$this->form_validation->set_rules ('auteur' , 'auteur' , 'required');
-		$this->form_validation->set_rules('ref','ref','required');
+		$data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend_format();
+		$data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
+		//les utilisateurs -1
+		$data['otheruser'] = $this->visage_livre_model->visage_livre_get_notconnected_user();
+		$data['user'] = $this->visage_livre_model->get_user_connected();
 		
-		if ($this->form_validation->run()!== FALSE ) {
-			$contentC = $this->input->post('content');
-			$auteur = $this->input->post('auteur');
-			$ref = $this->input->post('ref');
-			$this->visage_livre_model->visage_livre_add_document($contentC,$auteur);
-			$this->visage_livre_model->visage_livre_add_comment($ref);
-		}
-		*/
 		
-//		$name='titi';
-//		$data['postlist']=$this->visage_livre_model->visage_livre_get_post();
-
 		$this->load->vars($data);
 		$this->load->view('template');
-
+		
 	}
+	
 
     private function session_user()
     {
@@ -106,10 +84,53 @@ class Visage_livre extends CI_Controller {
 
             $this->session->sess_destroy();
             $data['content'] = 'home';
-
+			// ?? mettre le nom du user connecté a vide
+			$this->session->set_userdata(' ');
 
     }
-	
+
+	//afficher les posts et les commentaires
+	public function get_list_comment($iddoc){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules ('iddoc' , 'iddoc' , 'required');
+		if ($this->form_validation->run()!== FALSE ) {
+			$iddoc = $this->input->post('iddoc');
+			$data['commentlist'] = $this->visage_livre_model->visage_livre_get_list_comment($iddoc);
+			
+			$this->load->view('comment_list',$data);
+		}
+		$this->load->view('post_list',$data);
+		$this->index();	
+	}
+
+	//creer un post
+	public function create_post(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules ('content' , 'content' , 'required');
+
+		if ($this->form_validation->run()!== FALSE ) {
+			$content = $this->input->post('content');
+			$this->visage_livre_model->visage_livre_add_document($content);
+			$this->visage_livre_model->visage_livre_add_post();
+		}
+		$this->index();
+	}
+	//creer un comment
+	public function create_comment(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules ('content' , 'content' , 'required');
+		if ($this->form_validation->run()!== FALSE ) {
+			$content = $this->input->post('content');
+			$this->visage_livre_model->visage_livre_add_document($content);
+			$this->visage_livre_model->visage_livre_add_comment($iddoc);
+		}
+		$this->index();
+	}
 	public function delete_post($iddoc){
 		$this->visage_livre_model->visage_livre_delete_post($iddoc);
 		$this->index();
@@ -118,11 +139,25 @@ class Visage_livre extends CI_Controller {
 		$this->visage_livre_model->visage_livre_delete_comment($iddoc);
 		$this->index();
 	}
-	
 	//friend request
 	
-	public function send_friend_request($nickame,$target){
-		$this->visage_livre_model->visage_livre_send_friend_request($target);
+	public function send_friend_request($nickname,$target){
+		$this->visage_livre_model->visage_livre_send_friend_request($nickname,$target);
+		$this->index();
+	}
+	
+	public function accept_friend_request($nickname,$target){
+		$this->visage_livre_model->visage_livre_accept_friend_request($nickname,$target);
+		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
+		$this->index();
+	}
+	
+	public function refuse_friend_request($nickname,$target){
+		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
+		$this->index();
+	}
+	public function delete_friend($nickname,$target){
+		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
 		$this->index();
 	}
 }

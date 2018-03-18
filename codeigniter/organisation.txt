@@ -1,0 +1,26 @@
+Liste des fonctions à faire
+_____________________________
+
+Ajouter un utilisateur
+Se connecter
+Se déconnecter
+v		Afficher la liste des utilisateurs (nickname)
+Afficher la liste des amis d'un utilisateurs
+v		Demander une amitié
+v		Supprimer une demande d'amitié
+v		Accepter une invitation d'amitié
+v		Supprimer une amitié
+v		Afficher la liste des demandes d'amitié reçues
+v		Ajouter un billet
+v		Afficher la liste des billet d'un utilisateur(cas7)
+v		Afficher les billets des amis d'un utilisateur
+Afficher le détail d'un billet
+v		Ajouter un commentaire
+v		Supprimer un billet
+v		Supprimer un commentaire
+Supprimer un utilisateur
+
+Retourne le nickname de l'utilisateur actuel
+
+
+

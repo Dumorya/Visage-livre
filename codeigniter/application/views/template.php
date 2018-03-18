@@ -18,7 +18,7 @@
             <form id="searchForm" method="post">
                 <div class="input-group">
                     <i class="fa fa-user fa-3x"></i>
-                    <p class="navbar-user">Clara</p>
+                    <p class="navbar-user"><?php echo $this->visage_livre_model->get_user_connected();?></p>
                     <i class="fa fa-sort-down fa-2x"></i>
                 </div>
             </form>
