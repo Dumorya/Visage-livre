@@ -66,8 +66,9 @@ class Visage_livre_model extends CI_Model{
 		return $answer->result_array();
 	}
 	//récupérer les commentaires à l'infini
-	public function visage_livre_list_comment($iddoc){
-		$this->db->select(visagelivre._commentaire($iddoc));
+	public function visage_livre_get_list_comment($iddoc){
+		$this->db->select(ref);
+		$this->db->from(visagelivre._commentaire($iddoc));
 		$answer = $this->db->get();
 		var_dump($answer);
 		return $answer->result_array();

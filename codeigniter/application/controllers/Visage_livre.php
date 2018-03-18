@@ -88,7 +88,21 @@ class Visage_livre extends CI_Controller {
 			$this->session->set_userdata(' ');
 
     }
-	
+
+	//afficher les posts et les commentaires
+	public function get_list_comment($iddoc){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules ('iddoc' , 'iddoc' , 'required');
+		if ($this->form_validation->run()!== FALSE ) {
+			$iddoc = $this->input->post('iddoc');
+			$data['commentlist'] = $this->visage_livre_model->visage_livre_get_list_comment($iddoc);
+			
+			$this->load->view('comment_list',$data);
+		}
+		$this->load->view('post_list',$data);
+		$this->index();	
+	}
 
 	//creer un post
 	public function create_post(){
@@ -98,7 +112,7 @@ class Visage_livre extends CI_Controller {
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 
 		if ($this->form_validation->run()!== FALSE ) {
-			$contentP = $this->input->post('content');
+			$content = $this->input->post('content');
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
 		}
@@ -106,10 +120,13 @@ class Visage_livre extends CI_Controller {
 	}
 	//creer un comment
 	public function create_comment(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 		if ($this->form_validation->run()!== FALSE ) {
-			$contentC = $this->input->post('content');
-			$this->visage_livre_model->visage_livre_add_document($contentC);
+			$content = $this->input->post('content');
+			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 		}
 		$this->index();
