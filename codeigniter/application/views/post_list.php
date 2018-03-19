@@ -9,12 +9,10 @@
 		<?php echo $post_item['auteur']; ?>
 		<?php echo " - ".$post_item['create_date']; ?><br/>
 		<h4><?php echo $post_item['content']." "."(".$iddoc.")"." ";?></h4>
-		
+		<?php echo $iddoc;?>
 		<h3>Les comss</h3>
-		<?php echo form_open('visage_livre/get_list_comment',$post_item['iddoc']); ?>
-			<?php echo form_hidden('iddoc');?>
-			
-		<?php echo form_close();?>
+		<!-- <input type="text" style="display : hidden" value="<?php $iddoc ?>" name="coucou"/> -->
+		
 		<?php $this->load->view('create_comment',$iddoc);?>
 	</li>
 	<?php }

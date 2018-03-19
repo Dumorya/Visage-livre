@@ -68,10 +68,11 @@ class Visage_livre_model extends CI_Model{
 	}
 	//récupérer les commentaires à l'infini
 	public function visage_livre_get_list_comment($iddoc){
-		$this->db->select(ref);
-		$this->db->from(visagelivre._commentaire($iddoc));
+		$iddoc = 38;
+		echo 'je suis la';
+		$this->db->select('ref');
+		$this->db->from("visagelivre._commentaire(".$iddoc.")");
 		$answer = $this->db->get();
-		var_dump($answer);
 		return $answer->result_array();
 	}
 		
@@ -153,6 +154,7 @@ class Visage_livre_model extends CI_Model{
 	
 	//ajouter un document (post ou comment)
 	public function visage_livre_add_document($content){
+		echo get_user_connected();
 		$data = array(
 			'content' => $content,
 			'auteur' => get_user_connected()

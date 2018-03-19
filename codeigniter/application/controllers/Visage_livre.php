@@ -90,21 +90,15 @@ class Visage_livre extends CI_Controller {
         $this->session->set_userdata(' ');
 
         $data['content'] = 'page_connection';
+		$this->index();
     }
 
 	//afficher les posts et les commentaires
 	public function get_list_comment($iddoc){
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules ('iddoc' , 'iddoc' , 'required');
-		if ($this->form_validation->run()!== FALSE ) {
-			$iddoc = $this->input->post('iddoc');
-			$data['commentlist'] = $this->visage_livre_model->visage_livre_get_list_comment($iddoc);
+		echo 'allo';
+		$data['commentlist'] = $this->visage_livre_model->visage_livre_get_list_comment($iddoc);
 			
-			$this->load->view('comment_list',$data);
-		}
-		$this->load->view('post_list',$data);
-		$this->index();	
+		$data['content'] = 'post_list';
 	}
 
 	//creer un post
@@ -115,11 +109,12 @@ class Visage_livre extends CI_Controller {
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 
 		if ($this->form_validation->run()!== FALSE ) {
+			echo 'de je suis la';
 			$content = $this->input->post('content');
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
+			$data['content'] = 'page_home';
 		}
-		$this->index();
 	}
 	//creer un comment
 	public function create_comment(){
@@ -132,36 +127,29 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 		}
-		$this->index();
 	}
 	public function delete_post($iddoc){
 		$this->visage_livre_model->visage_livre_delete_post($iddoc);
-		$this->index();
 	}
 	public function delete_comment($iddoc){
 		$this->visage_livre_model->visage_livre_delete_comment($iddoc);
-		$this->index();
 	}
 	//friend request
 	
 	public function send_friend_request($nickname,$target){
 		$this->visage_livre_model->visage_livre_send_friend_request($nickname,$target);
-		$this->index();
 	}
 	
 	public function accept_friend_request($nickname,$target){
 		$this->visage_livre_model->visage_livre_accept_friend_request($nickname,$target);
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
-		$this->index();
 	}
 	
 	public function refuse_friend_request($nickname,$target){
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
-		$this->index();
 	}
 	public function delete_friend($nickname,$target){
 		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
-		$this->index();
 	}
 }
 ?>
