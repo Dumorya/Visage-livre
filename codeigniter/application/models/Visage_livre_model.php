@@ -157,6 +157,7 @@ class Visage_livre_model extends CI_Model{
 			'content' => $content,
 			'auteur' => $this->get_user_connected()
 		);
+		
 		return $this->db->insert('_document',$data);
 	}
 
@@ -178,7 +179,6 @@ class Visage_livre_model extends CI_Model{
 
 	//ajouter un comment, un param le iddoc du post concerné
 	public function visage_livre_add_comment($ref){
-		echo 'je crée un comment';
 		$this->db->select('max(_document.iddoc)');
 		$this->db->from('_document');
 		$query=$this->db->get();
