@@ -11,7 +11,7 @@
 		<h4><?php echo $post_item['content']." "."(".$iddoc.")"." ";?></h4>
 		<?php echo $iddoc;?>
 		<h3>Les comss</h3>
-		<!-- <input type="text" style="display : hidden" value="<?php $iddoc ?>" name="coucou"/> -->
+		 <input type="hidden" style="display : hidden" value="<?php $iddoc ?>" name="coucou"/>
 		
 		<?php $this->load->view('create_comment',$iddoc);?>
 	</li>

@@ -95,7 +95,6 @@ class Visage_livre extends CI_Controller {
 
 	//afficher les posts et les commentaires
 	public function get_list_comment($iddoc){
-		echo 'allo';
 		$data['commentlist'] = $this->visage_livre_model->visage_livre_get_list_comment($iddoc);
 			
 		$data['content'] = 'post_list';
@@ -109,7 +108,6 @@ class Visage_livre extends CI_Controller {
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 
 		if ($this->form_validation->run()!== FALSE ) {
-			echo 'de je suis la';
 			$content = $this->input->post('content');
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
@@ -127,6 +125,7 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 		}
+		$data['content'] = 'home';
 	}
 	public function delete_post($iddoc){
 		$this->visage_livre_model->visage_livre_delete_post($iddoc);
