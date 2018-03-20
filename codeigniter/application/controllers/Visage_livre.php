@@ -165,6 +165,7 @@ class Visage_livre extends CI_Controller
     {
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
 	}
+
 	public function delete_friend($nickname,$target)
     {
 		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
