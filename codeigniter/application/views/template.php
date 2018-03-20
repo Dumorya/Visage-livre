@@ -18,13 +18,35 @@
                 <a class="navbar-brand" href="#" id="linkOpenFoodFacts">Visage livre</a>
             </div>
 
-            <form id="searchForm" method="post">
-                <div class="input-group">
-                    <i class="fa fa-user fa-3x"></i>
-                    <p class="navbar-user"><?php echo $this->visage_livre_model->get_user_connected();?></p>
-                    <i class="fa fa-sort-down fa-2x"></i>
-                </div>
-            </form>
+            <?php
+                if($this->session->userdata('connect_nickname') != null)
+                {
+            ?>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <form id="searchForm" method="post">
+                                <div class="input-group">
+                                    <i class="fa fa-user fa-3x"></i>
+                                    <p class="navbar-user"><?php echo $this->visage_livre_model->get_user_connected();?></p>
+                                    <i class="fa fa-sort-down fa-2x"></i>
+                                </div>
+                            </form>
+                        </button>
+                        <div class="dropdown-content">
+                            <?php $this->load->view('button_user_info'); ?>
+                            <?php $this->load->view('logout'); ?>
+                        </div>
+                    </div>
+
+
+            <?php
+                }
+                else
+                {
+                    $this->load->view('connection');
+                }
+            ?>
+
         </div>
     </nav>
 

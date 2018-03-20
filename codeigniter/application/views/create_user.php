@@ -8,19 +8,32 @@
 ?>
 
 <div>
-	<h2>Créer un compte</h2>
+    <div class="col-lg-12 row">
+        <div class="col-lg-6">
+            <img src="<?php echo base_url(); ?>application/public/images/home_image.png" alt="image accueil monde connecté" />
+        </div>
 
-	<?php echo validation_errors(); ?>
-	<?php echo form_open('visage_livre/index') ?>
-		<label for="create_nickname">Identifiant</label>
-		<input type ="text" name ="create_nickname" required/>
+        <div class="col-lg-6">
+            <h2>Créer un compte</h2>
 
-		<label for="create_pass">Mot de passe</label>
-		<input type ="password" name ="create_pass" required/>
+            <?php echo validation_errors(); ?>
+            <?php echo form_open('visage_livre/index') ?>
+                <div class="form-group">
+                    <label for="create_nickname">Identifiant</label>
+                    <input type ="text" name ="create_nickname" class="form-control" required/>
+                </div>
 
-		<label for="create_email">Adresse mail</label>
-		<input type ="email" name ="create_email" required/>
+                <div class="form-group">
+                    <label for="create_pass">Mot de passe</label>
+                    <input type ="password" name ="create_pass" class="form-control" required/>
+                </div>
 
-		<input type ="submit" name ="submit" value ="Créer un compte" />
-	</form >
+                <div class="form-group">
+                    <label for="create_email">Adresse mail</label>
+                    <input type ="email" name ="create_email" class="form-control" required/>
+                </div>
+                    <input type ="submit" name ="submit" value ="Créer un compte" />
+            </form >
+        </div>
+    </div>
 </div>

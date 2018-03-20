@@ -91,7 +91,6 @@ class Visage_livre extends CI_Controller
 
 		$this->session->sess_destroy();
         // ?? mettre le nom du user connecté a vide
-        $this->session->set_userdata(' ');
 
         $data['content'] = 'page_connection';
 
