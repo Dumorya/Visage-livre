@@ -3,7 +3,7 @@
 	<ul>
 	
 	<?php
-	foreach ($postlist as $post_item ){ ?>
+	foreach ($postlist as $post_item ) { ?>
 	<li>
 		<?php $iddoc = $post_item['iddoc']; ?>
 		<?php echo $post_item['auteur']; ?>

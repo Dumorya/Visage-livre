@@ -1,7 +1,8 @@
 <?php
-class Visage_livre extends CI_Controller {
-	public function __construct(){
-
+class Visage_livre extends CI_Controller
+{
+	public function __construct()
+    {
 		parent::__construct();
 		$this->load->model('visage_livre_model');
 		$this->load->helper('url');
@@ -9,13 +10,15 @@ class Visage_livre extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
     }
-	public function index(){
+
+	public function index()
+    {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->library('session');
 
 
-        $data['title']='Créer un compte';
+        $data['title']   ='Créer un compte';
         $data['content'] = 'page_connection';
 
 		//connexion
@@ -50,8 +53,8 @@ class Visage_livre extends CI_Controller {
             $this->visage_livre_model->create_user($create_nickname,$create_pass,$create_email);
 
             $connect_nickname = $create_nickname;
-            $connect_pass = $create_pass;
-            $connect_email = $create_email;
+            $connect_pass     = $create_pass;
+            $connect_email    = $create_email;
 
             $this->session->set_userdata('connect_nickname', $connect_nickname);
             $this->session->set_userdata('connect_pass', $connect_pass);
@@ -107,18 +110,19 @@ class Visage_livre extends CI_Controller {
 
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 
-		if ($this->form_validation->run()!== FALSE ) {
+		if ($this->form_validation->run()!== FALSE )
+		{
 			$content = $this->input->post('content');
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
 			$data['content'] = 'page_home';
 		}
 
-        $data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend_format();
-        $data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
+        $data['postlist']  = $this->visage_livre_model->visage_livre_get_post_friend_format();
+        $data['userlist']  = $this->visage_livre_model->visage_livre_get_user();
         //les utilisateurs -1
         $data['otheruser'] = $this->visage_livre_model->visage_livre_get_notconnected_user();
-        $data['user'] = $this->visage_livre_model->get_user_connected();
+        $data['user']      = $this->visage_livre_model->get_user_connected();
 
         //var_dump($data['postlist']); --> empty
 		$this->load->vars($data);
@@ -126,15 +130,16 @@ class Visage_livre extends CI_Controller {
 	}
 
 	//creer un comment
-	public function create_comment($iddoc){
+	public function create_comment($iddoc)
+    {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
-		if ($this->form_validation->run()!== FALSE ) {
+		if ($this->form_validation->run()!== FALSE )
+		{
 			$content = $this->input->post('content');
 			
-			//echo 'le iddoc dans fct controller = '.$iddoc;
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 			$data['content'] = 'page_home';
@@ -142,34 +147,26 @@ class Visage_livre extends CI_Controller {
 		//$this->load->vars($data);
 		//$this->load->view('template');
 	}
-	/*public function delete_post($iddoc){
-		$this->visage_livre_model->visage_livre_delete_post($iddoc);
-		$data['content'] = 'page_home';
-		$this->load->vars($data);
-		$this->load->view('template');
-	}
-	public function delete_comment($iddoc){
-		$this->visage_livre_model->visage_livre_delete_comment($iddoc);
-		$data['content'] = 'page_home';
-		$this->load->vars($data);
-		$this->load->view('template');
 
-	}*/
 	//friend request
 	
-	public function send_friend_request($nickname,$target){
+	public function send_friend_request($nickname,$target)
+    {
 		$this->visage_livre_model->visage_livre_send_friend_request($nickname,$target);
 	}
 	
-	public function accept_friend_request($nickname,$target){
+	public function accept_friend_request($nickname,$target)
+    {
 		$this->visage_livre_model->visage_livre_accept_friend_request($nickname,$target);
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
 	}
 	
-	public function refuse_friend_request($nickname,$target){
+	public function refuse_friend_request($nickname,$target)
+    {
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
 	}
-	public function delete_friend($nickname,$target){
+	public function delete_friend($nickname,$target)
+    {
 		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
 	}
 }
