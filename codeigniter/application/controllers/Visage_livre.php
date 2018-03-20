@@ -59,13 +59,6 @@ class Visage_livre extends CI_Controller {
 
             $data['content'] = 'page_home';
         }
-
-		$data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend_format();
-		$data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
-		//les utilisateurs -1
-		$data['otheruser'] = $this->visage_livre_model->visage_livre_get_notconnected_user();
-		$data['user'] = $this->visage_livre_model->get_user_connected();
-		
 		
 		$this->load->vars($data);
 		$this->load->view('template');
@@ -107,7 +100,8 @@ class Visage_livre extends CI_Controller {
 
 
 	//creer un post
-	public function create_post(){
+	public function create_post()
+	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
@@ -119,9 +113,18 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_post();
 			$data['content'] = 'page_home';
 		}
+
+        $data['postlist'] = $this->visage_livre_model->visage_livre_get_post_friend_format();
+        $data['userlist'] = $this->visage_livre_model->visage_livre_get_user();
+        //les utilisateurs -1
+        $data['otheruser'] = $this->visage_livre_model->visage_livre_get_notconnected_user();
+        $data['user'] = $this->visage_livre_model->get_user_connected();
+
+        //var_dump($data['postlist']); --> empty
 		$this->load->vars($data);
 		$this->load->view('template');
 	}
+
 	//creer un comment
 	public function create_comment($iddoc){
 		$this->load->helper('form');
