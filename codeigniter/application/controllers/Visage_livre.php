@@ -32,7 +32,7 @@ class Visage_livre extends CI_Controller {
 
             $this->session->set_userdata('connect_nickname', $connect_nickname);
             $this->session->set_userdata('connect_pass', $connect_pass);
-            $this->session->set_userdata('connect_email', serialize($connect_email[0]));
+            $this->session->set_userdata('connect_email', $connect_email[0]->email);
 
             $data['content'] = 'page_home';
         }
@@ -71,6 +71,14 @@ class Visage_livre extends CI_Controller {
 		$this->load->view('template');
 		
 	}
+
+	public function display_user_info()
+	{
+		$data['content'] = 'display_user_info';
+
+        $this->load->vars($data);
+        $this->load->view('template');
+	}
 	
 
     private function session_user()
@@ -90,6 +98,9 @@ class Visage_livre extends CI_Controller {
         $this->session->set_userdata(' ');
 
         $data['content'] = 'page_connection';
+
+        $this->load->vars($data);
+        $this->load->view('template');
     }
 
 	//afficher les posts et les commentaires
