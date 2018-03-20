@@ -9,12 +9,14 @@
 
 <div>
     <div class="col-lg-12 row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
+            <h3>Avec Visage livre, partagez et restez en contact avec votre entourage.</h3>
             <img src="<?php echo base_url(); ?>application/public/images/home_image.png" alt="image accueil monde connecté" />
         </div>
 
-        <div class="col-lg-6">
-            <h2>Créer un compte</h2>
+        <div class="col-lg-4">
+            <h2>Inscription</h2>
+            <h5>C’est gratuit (et ça le restera toujours)</h5>
 
             <?php echo validation_errors(); ?>
             <?php echo form_open('visage_livre/index') ?>
@@ -32,7 +34,7 @@
                     <label for="create_email">Adresse mail</label>
                     <input type ="email" name ="create_email" class="form-control" required/>
                 </div>
-                    <input type ="submit" name ="submit" value ="Créer un compte" />
+                    <input type ="submit" name ="submit" value ="Créer un compte" class="createUserButton"/>
             </form >
         </div>
     </div>
