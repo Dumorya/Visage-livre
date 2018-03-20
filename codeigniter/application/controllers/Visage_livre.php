@@ -78,8 +78,6 @@ class Visage_livre extends CI_Controller {
         if(!$this->session->userdata('connect_nickname'))
         {
             $data['content'] = 'page_home';
-			$this->load->vars($data);
-			$this->load->view('template');
         }
     }
 
@@ -92,8 +90,6 @@ class Visage_livre extends CI_Controller {
         $this->session->set_userdata(' ');
 
         $data['content'] = 'page_connection';
-		$this->load->vars($data);
-		$this->load->view('template');
     }
 
 	//afficher les posts et les commentaires
@@ -111,9 +107,9 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_post();
 			$data['content'] = 'page_home';
-			$this->load->vars($data);
-			$this->load->view('template');
 		}
+		$this->load->vars($data);
+		$this->load->view('template');
 	}
 	//creer un comment
 	public function create_comment($iddoc){
@@ -128,11 +124,11 @@ class Visage_livre extends CI_Controller {
 			$this->visage_livre_model->visage_livre_add_document($content);
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 			$data['content'] = 'page_home';
-			$this->load->vars($data);
-			$this->load->view('template');
 		}
+		//$this->load->vars($data);
+		//$this->load->view('template');
 	}
-	public function delete_post($iddoc){
+	/*public function delete_post($iddoc){
 		$this->visage_livre_model->visage_livre_delete_post($iddoc);
 		$data['content'] = 'page_home';
 		$this->load->vars($data);
@@ -144,7 +140,7 @@ class Visage_livre extends CI_Controller {
 		$this->load->vars($data);
 		$this->load->view('template');
 
-	}
+	}*/
 	//friend request
 	
 	public function send_friend_request($nickname,$target){
