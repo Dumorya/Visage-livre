@@ -13,8 +13,11 @@
 <div id ="global">
     <nav class="navbar navbar-default" id="nav">
         <div class="container-fluid">
-            <img src="<?php echo base_url(); ?>application/public/images/logo_visage_livre.png" class="navbar-logo">
-            <a class="navbar-brand" href="#" id="linkOpenFoodFacts">Visage livre</a>
+            <div>
+                <img src="<?php echo base_url(); ?>application/public/images/logo_visage_livre.png" class="navbar-logo">
+                <a class="navbar-brand" href="#" id="linkOpenFoodFacts">Visage livre</a>
+            </div>
+
             <form id="searchForm" method="post">
                 <div class="input-group">
                     <i class="fa fa-user fa-3x"></i>

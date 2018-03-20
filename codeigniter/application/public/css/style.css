@@ -23,10 +23,10 @@ nav
 	z-index: 10;
 }
 
-#filterButtonContainer, nav
-{
-	position: fixed !important;
-}
+/*#filterButtonContainer, nav*/
+/*{*/
+	/*position: fixed !important;*/
+/*}*/
 
 #filterButtonContainer
 {
@@ -104,3 +104,4 @@ caption {
 	text-align: center !important;
 	caption-side: top !important;
 }
+
