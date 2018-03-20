@@ -59,22 +59,24 @@ class Visage_livre_model extends CI_Model{
 
 	//afficher les commentaires pour un post en particulier
 	public function visage_livre_get_comment2($iddoc){
-		$this->db->select('_document.auteur,_document.content,_document.iddoc,_document.create_date');
+		$nb = 30; //nombre de caractères a partir desquels on coupe l'affichage
+		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
+,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
 		$this->db->from('_document');
 		$this->db->join('_comment','_document.iddoc=_comment.iddoc','inner join');
 		$this->db->where('ref',$iddoc);
 		$answer=$this->db->get();
-		return $answer->result_array();
+		return $answer->result_array();	
 	}
 	//récupérer les commentaires à l'infini
 	public function visage_livre_get_list_comment($iddoc){
-		$iddoc = 38;
 		$this->db->select('ref');
-		$this->db->from("visagelivre._commentaire(".$iddoc.")");
+		$this->db->from("_commentaire(".$iddoc.") f");
+		$this->db->join('_document', '_document.iddoc = f.ref', 'inner join');
 		$answer = $this->db->get();
 		return $answer->result_array();
 	}
-		
+
 
 	//afficher les posts et les commentaires
 	public function visage_livre_get_post_comment(){
