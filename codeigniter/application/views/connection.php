@@ -1,6 +1,6 @@
 <div>
 	<?php echo validation_errors(); ?>
-	<?php echo form_open('visage_livre/index') ?>
+	<?php echo form_open('visage_livre/connect') ?>
 		<label for="connect_nickname">Identifiant</label>
 		<input type="text" name="connect_nickname" required/>
 		
