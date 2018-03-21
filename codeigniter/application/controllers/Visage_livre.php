@@ -94,7 +94,6 @@ class Visage_livre extends CI_Controller
 
 		$this->session->sess_destroy();
         // ?? mettre le nom du user connecté a vide
-        $this->session->set_userdata(' ');
 
         //$data['content'] = 'page_connection';
 
@@ -162,6 +161,7 @@ class Visage_livre extends CI_Controller
     {
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
 	}
+
 	public function delete_friend($nickname,$target)
     {
 		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);

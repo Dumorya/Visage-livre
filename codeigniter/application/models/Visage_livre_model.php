@@ -1,11 +1,14 @@
 <?php
-class Visage_livre_model extends CI_Model{
+class Visage_livre_model extends CI_Model
+{
+
 	public function __construct()
 	{
 		$this->load->database();
 	}
 
-	public function get_user_connected(){
+	public function get_user_connected()
+	{
         $this->load->library('session');
 
         return $this->session->userdata('connect_nickname');
@@ -256,6 +259,7 @@ class Visage_livre_model extends CI_Model{
 
 		return $this->db->insert('_friendrequest',$data);
 	}
+
 	public function visage_livre_delete_friend_request($nickname,$target)
 	{
 		$data = array(
@@ -265,6 +269,7 @@ class Visage_livre_model extends CI_Model{
 
 		return $this->db->delete('_friendrequest',$data);
 	}
+
 	public function visage_livre_accept_friend_request($nickname,$target)
 	{
 		$data = array
@@ -275,6 +280,7 @@ class Visage_livre_model extends CI_Model{
 
 		return $this->db->insert('_friendof',$data);
 	}
+
 	public function visage_livre_delete_friend($nickname,$target)
 	{
 		$data = array(

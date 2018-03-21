@@ -7,4 +7,4 @@
  */
 ?>
 
-<input type="button" value="Déconnexion" name="logout" onclick="window.location='<?php echo site_url("visage_livre/logout");?>'"/>
+<a onclick="window.location='<?php echo site_url("visage_livre/logout");?>'">Déconnexion</a>
