@@ -26,9 +26,6 @@ class Visage_livre extends CI_Controller
 		$this->load->library('form_validation');
         $this->load->library('session');
 
-        $data['title']   ='Créer un compte';
-        $data['content'] = 'page_connection';
-		
 		//Récupérer les données saisies envoyées en POST
 		$this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
 		$this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
@@ -86,7 +83,7 @@ class Visage_livre extends CI_Controller
 
             $data['content'] = 'page_home';
         }
-		
+
 		$this->load->vars($data);
 		$this->load->view('template');
 	}
