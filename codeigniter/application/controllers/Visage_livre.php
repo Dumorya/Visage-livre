@@ -33,11 +33,18 @@ class Visage_livre extends CI_Controller
             $connect_email 	  = $this->visage_livre_model->get_email($connect_nickname);
             $result 		  = $this->visage_livre_model->connection($connect_nickname,$connect_pass);
 
-            $this->session->set_userdata('connect_nickname', $connect_nickname);
-            $this->session->set_userdata('connect_pass', $connect_pass);
-            $this->session->set_userdata('connect_email', $connect_email[0]->email);
+            if(count($result) === 0)
+            {
+                $data['content'] = 'page_connection';
+            }
+            else
+            {
+                $this->session->set_userdata('connect_nickname', $connect_nickname);
+                $this->session->set_userdata('connect_pass', $connect_pass);
+                $this->session->set_userdata('connect_email', $connect_email[0]->email);
 
-            $data['content'] = 'page_home';
+                $data['content'] = 'page_home';
+            }
         }
 
         // Création d'un compte

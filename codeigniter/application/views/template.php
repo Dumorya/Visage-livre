@@ -4,7 +4,7 @@
     <meta charset = "utf-8" />
     <title>Visage livre</title >
 
-    <link rel="shortcut icon" href="../public/images/logo2_visage_livre.png"/>
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>application/public/images/logo2_visage_livre.png"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>application/public/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url(); ?>application/public/css/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -27,7 +27,14 @@
                             <form id="searchForm" method="post">
                                 <div class="input-group">
                                     <i class="fa fa-user fa-3x"></i>
-                                    <p class="navbar-user"><?php echo $this->visage_livre_model->get_user_connected();?></p>
+                                    <p class="navbar-user">
+                                        <?php
+                                            if(count($this->visage_livre_model->connection($this->session->userdata('connect_nickname'),$this->session->userdata('connect_pass'))) !== 0)
+                                            {
+                                                echo $this->visage_livre_model->get_user_connected();
+                                            }
+                                        ?>
+                                    </p>
                                     <i class="fa fa-sort-down fa-2x"></i>
                                 </div>
                             </form>

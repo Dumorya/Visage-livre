@@ -26,12 +26,13 @@ class Visage_livre_model extends CI_Model
 
     public function connection($connect_nickname,$connect_pass)
     {
-        return $this->db->select('nickname,pass')
-            ->from('_user')
-            ->where('nickname', $connect_nickname)
-            ->where('pass', $connect_pass)
-            ->get()
-            ->result();
+        $this->db->select('nickname,pass');
+        $this->db->from('_user');
+        $this->db->where('nickname', $connect_nickname);
+        $this->db->where('pass', $connect_pass);
+        $query = $this->db->get();
+
+        return $query->result_array();
     }
 
     public function get_email($connect_nickname)
