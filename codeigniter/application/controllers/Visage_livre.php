@@ -14,7 +14,7 @@ class Visage_livre extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->library('session');
-        //$data['content'] = 'page_connection';		
+       // $data['content'] = 'page_connection';		
         $data['content'] = 'page_home';		
 		$this->load->vars($data);
 		$this->load->view('template');
