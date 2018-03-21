@@ -19,7 +19,7 @@
             <h5>C’est gratuit (et ça le restera toujours)</h5>
 
             <?php echo validation_errors(); ?>
-            <?php echo form_open('visage_livre/create_account') ?>
+            <?php echo form_open('visage_livre/create_account'); ?>
                 <div class="form-group">
                     <label for="create_nickname">Identifiant</label>
                     <input type ="text" name ="create_nickname" class="form-control" required/>

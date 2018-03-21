@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87e70185-659f-4b4d-9c53-1c16b7d15166" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" afterPath="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/config/autoload.php" afterPath="$PROJECT_DIR$/codeigniter/application/config/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/views/create_user.php" afterPath="$PROJECT_DIR$/codeigniter/application/views/create_user.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Visage_livre.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Visage_livre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
+            <state relative-caret-position="2124">
               <caret line="118" column="8" lean-forward="false" selection-start-line="118" selection-start-column="8" selection-end-line="121" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/codeigniter/application/config/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="670">
+              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -36,8 +47,8 @@
       <file leaf-file-name="create_user.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/create_user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="288">
+              <caret line="21" column="64" lean-forward="false" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -150,7 +161,6 @@
         <option value="$PROJECT_DIR$/codeigniter/application/config/database.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/controllers/Todo.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/home.php" />
-        <option value="$PROJECT_DIR$/codeigniter/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/display_user_info.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/post_list.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/button_user_info.php" />
@@ -160,10 +170,11 @@
         <option value="$PROJECT_DIR$/codeigniter/application/views/template.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/page_home.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/page_connection.php" />
-        <option value="$PROJECT_DIR$/codeigniter/application/views/create_user.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/connection.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/config/config.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" />
+        <option value="$PROJECT_DIR$/codeigniter/application/views/create_user.php" />
+        <option value="$PROJECT_DIR$/codeigniter/application/config/autoload.php" />
       </list>
     </option>
   </component>
@@ -325,12 +336,12 @@
       <workItem from="1521585190359" duration="963000" />
       <workItem from="1521586221737" duration="2839000" />
       <workItem from="1521589167748" duration="1231000" />
-      <workItem from="1521633683238" duration="4304000" />
+      <workItem from="1521633683238" duration="4606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31327000" />
+    <option name="totallyTimeSpent" value="31629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -478,13 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/config/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -672,14 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -690,18 +686,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/views/create_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="288">
+          <caret line="21" column="64" lean-forward="false" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
+        <state relative-caret-position="2124">
           <caret line="118" column="8" lean-forward="false" selection-start-line="118" selection-start-column="8" selection-end-line="121" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="36" />
           <folding />
         </state>
       </provider>
