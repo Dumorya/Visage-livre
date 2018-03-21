@@ -148,7 +148,7 @@ class Visage_livre_model extends CI_Model
 		return $answer->result_array();
 		
 	}
-//liste finale (posts du user connecté et ses amis
+//liste finale (posts du user connecté et ses amis)
 	public function visage_livre_get_post_format()
 	{
 		$nb = 30; //nombre de caractères a partir desquels on coupe l'affichage
@@ -156,14 +156,23 @@ class Visage_livre_model extends CI_Model
 		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
 							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
 		$this->db->from('_document');
-		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
-		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');
-		$this->db->join('_post','_document.iddoc = _post.iddoc','inner join');
-		$this->db->where("_friendof.nickname = '$name' or _friendof.friend = '$name'");
+		$this->db->join('_user','_document.auteur=_user.nickname','left join');
+		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','left join');
+		$this->db->join('_post','_document.iddoc = _post.iddoc','left join');
+		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') or _document.auteur = '$name'");
 		$this->db->order_by('_document.create_date desc');
-		$answer=$this->db->get();
+		$answer1=$this->db->get()->result_array();
 
-		return $answer->result_array();	
+		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
+							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
+		$this->db->from('_document');
+		$this->db->join('_user','_document.auteur=_user.nickname','left join');
+		$this->db->where("_document.auteur = '$name'");
+		$this->db->order_by('_document.create_date desc');
+		$answer2=$this->db->get()->result_array();
+
+		$query = array_merge($answer1, $answer2);
+		return $query;	
 	}
 
 

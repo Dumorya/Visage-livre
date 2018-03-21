@@ -1,5 +1,4 @@
 <div>
-	<h2>Liste des posts de vos amis</h2>
 	<ul>
 	
 	<?php
