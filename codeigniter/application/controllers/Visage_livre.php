@@ -71,10 +71,6 @@ class Visage_livre extends CI_Controller
         }
 
 			$data['content'] = 'page_home';
-		}
-		
-		$this->load->vars($data);
-		$this->load->view('template');
 	}
 
 	public function display_user_info()
