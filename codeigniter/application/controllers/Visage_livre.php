@@ -14,8 +14,7 @@ class Visage_livre extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->library('session');
-        //$data['content'] = 'page_connection';
-		//
+
         $data['content'] = 'page_connection';
 
 		$this->load->vars($data);
@@ -28,7 +27,9 @@ class Visage_livre extends CI_Controller
 		$this->load->library('form_validation');
         $this->load->library('session');
 
-		//Récupérer les données saisies envoyées en POST
+        $data['content'] = 'page_connection';
+
+        //Récupérer les données saisies envoyées en POST
 		$this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
 		$this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
 
@@ -63,7 +64,9 @@ class Visage_livre extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('session');
 
-		// Création d'un compte
+        $data['content'] = 'create_user';
+
+        // Création d'un compte
         $this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
         $this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
         $this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
@@ -112,9 +115,8 @@ class Visage_livre extends CI_Controller
         $this->load->library('session');
 
 		$this->session->sess_destroy();
-        // ?? mettre le nom du user connecté a vide
 
-        //$data['content'] = 'page_connection';
+        $data['content'] = 'page_connection';
 
         $this->load->vars($data);
         $this->load->view('template');
