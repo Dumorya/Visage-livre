@@ -159,7 +159,7 @@ class Visage_livre_model extends CI_Model
 		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
 		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');
 		$this->db->join('_post','_document.iddoc = _post.iddoc','inner join');
-		$this->db->where("((_friendof.nickname = '$name' or _friendof.friend = '$name') and _document.auteur != '$name') or  _document.auteur != '$name'");
+		$this->db->where("_friendof.nickname = '$name' or _friendof.friend = '$name'");
 		$this->db->order_by('_document.create_date desc');
 		$answer=$this->db->get();
 
