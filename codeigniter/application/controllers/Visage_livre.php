@@ -19,42 +19,26 @@ class Visage_livre extends CI_Controller
 		$this->load->vars($data);
 		$this->load->view('template');
 	}
-	public function connect(){
+
+	public function connect()
+	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+        $this->load->library('session');
+
+        $data['title']   ='Créer un compte';
+        $data['content'] = 'page_connection';
 		
 		//Récupérer les données saisies envoyées en POST
 		$this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
 		$this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
 
-		if($this->form_validation->run() !== false)
-		{
-			$connect_nickname = $this->input->post('connect_nickname');
-			$connect_pass 	  = $this->input->post('connect_pass');
-			$connect_email 	  = $this->visage_livre_model->get_email($connect_nickname);
-			$result 		  = $this->visage_livre_model->connection($connect_nickname,$connect_pass);
-
-			$this->session->set_userdata('connect_nickname', $connect_nickname);
-			$this->session->set_userdata('connect_pass', $connect_pass);
-			$this->session->set_userdata('connect_email', $connect_email[0]->email);
-
-			$data['content'] = 'page_home';
-		}
-		$this->load->vars($data);
-		$this->load->view('template');
-	}
-	public function create_account(){
-		// Création d'un compte
-		$this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
-		$this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
-		$this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
-
-		if ($this->form_validation->run() !== FALSE)
-		{
-			$create_nickname 		 = $this->input->post('create_nickname');
-			$create_pass 	  		 = $this->input->post('create_pass');
-			$create_email 	  		 = $this->input->post('create_email');
-			$this->visage_livre_model->create_user($create_nickname,$create_pass,$create_email);
+        if($this->form_validation->run() !== false)
+        {
+            $connect_nickname = $this->input->post('connect_nickname');
+            $connect_pass 	  = $this->input->post('connect_pass');
+            $connect_email 	  = $this->visage_livre_model->get_email($connect_nickname);
+            $result 		  = $this->visage_livre_model->connection($connect_nickname,$connect_pass);
 
             if(count($result) === 0)
             {
@@ -70,7 +54,41 @@ class Visage_livre extends CI_Controller
             }
         }
 
-			$data['content'] = 'page_home';
+		$this->load->vars($data);
+		$this->load->view('template');
+	}
+
+	public function create_account()
+	{
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+
+		// Création d'un compte
+        $this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
+        $this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
+        $this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
+
+        if ($this->form_validation->run() !== FALSE)
+        {
+            $create_nickname 		 = $this->input->post('create_nickname');
+            $create_pass 	  		 = $this->input->post('create_pass');
+            $create_email 	  		 = $this->input->post('create_email');
+            $this->visage_livre_model->create_user($create_nickname,$create_pass,$create_email);
+
+            $connect_nickname = $create_nickname;
+            $connect_pass     = $create_pass;
+            $connect_email    = $create_email;
+
+            $this->session->set_userdata('connect_nickname', $connect_nickname);
+            $this->session->set_userdata('connect_pass', $connect_pass);
+            $this->session->set_userdata('connect_email', $connect_email);
+
+            $data['content'] = 'page_home';
+        }
+		
+		$this->load->vars($data);
+		$this->load->view('template');
 	}
 
 	public function display_user_info()
@@ -82,7 +100,7 @@ class Visage_livre extends CI_Controller
 	}
 	
 
-    private function session_user()
+    public function session_user()
     {
         if(!$this->session->userdata('connect_nickname'))
         {
