@@ -14,9 +14,16 @@
             <img src="<?php echo base_url(); ?>application/public/images/home_image.png" alt="image accueil monde connecté" />
         </div>
 
+<<<<<<< HEAD
+	<?php echo validation_errors(); ?>
+	<?php echo form_open('visage_livre/create_account') ?>
+		<label for="create_nickname">Identifiant</label>
+		<input type ="text" name ="create_nickname" required/>
+=======
         <div class="col-lg-4">
             <h2>Inscription</h2>
             <h5>C’est gratuit (et ça le restera toujours)</h5>
+>>>>>>> dev
 
             <?php echo validation_errors(); ?>
             <?php echo form_open('visage_livre/index') ?>

@@ -6,8 +6,6 @@ class Visage_livre extends CI_Controller
 		parent::__construct();
 		$this->load->model('visage_livre_model');
 		$this->load->helper('url');
-        $this->load->helper('form');
-        $this->load->library('form_validation');
         $this->load->library('session');
     }
 
@@ -16,22 +14,47 @@ class Visage_livre extends CI_Controller
 		$this->load->helper('form');
 		$this->load->library('form_validation');
         $this->load->library('session');
+        //$data['content'] = 'page_connection';		
+        $data['content'] = 'page_home';		
+		$this->load->vars($data);
+		$this->load->view('template');
+	}
+	public function connect(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		//Récupérer les données saisies envoyées en POST
+		$this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
+		$this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
 
+		if($this->form_validation->run() !== false)
+		{
+			$connect_nickname = $this->input->post('connect_nickname');
+			$connect_pass 	  = $this->input->post('connect_pass');
+			$connect_email 	  = $this->visage_livre_model->get_email($connect_nickname);
+			$result 		  = $this->visage_livre_model->connection($connect_nickname,$connect_pass);
 
-        $data['title']   ='Créer un compte';
-        $data['content'] = 'page_connection';
+			$this->session->set_userdata('connect_nickname', $connect_nickname);
+			$this->session->set_userdata('connect_pass', $connect_pass);
+			$this->session->set_userdata('connect_email', $connect_email[0]->email);
 
-		//connexion
-        //Récupérer les données saisies envoyées en POST
-        $this->form_validation->set_rules('connect_nickname' , 'Identifiant' , 'required');
-        $this->form_validation->set_rules('connect_pass' , 'Mot de passe' , 'required');
+			$data['content'] = 'page_home';
+		}
+		$this->load->vars($data);
+		$this->load->view('template');
+	}
+	public function create_account(){
+		// Création d'un compte
+		$this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
+		$this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
+		$this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
 
-        if($this->form_validation->run() !== false)
-        {
-            $connect_nickname = $this->input->post('connect_nickname');
-            $connect_pass 	  = $this->input->post('connect_pass');
-            $connect_email 	  = $this->visage_livre_model->get_email($connect_nickname);
-            $result 		  = $this->visage_livre_model->connection($connect_nickname,$connect_pass);
+		if ($this->form_validation->run() !== FALSE)
+		{
+			$create_nickname 		 = $this->input->post('create_nickname');
+			$create_pass 	  		 = $this->input->post('create_pass');
+			$create_email 	  		 = $this->input->post('create_email');
+			$this->visage_livre_model->create_user($create_nickname,$create_pass,$create_email);
 
             if(count($result) === 0)
             {
@@ -47,32 +70,11 @@ class Visage_livre extends CI_Controller
             }
         }
 
-        // Création d'un compte
-        $this->form_validation->set_rules('create_nickname' , 'Identifiant' , 'required');
-        $this->form_validation->set_rules('create_pass' , 'Mot de passe' , 'required');
-        $this->form_validation->set_rules('create_email' , 'Adresse mail' , 'required');
-
-        if ($this->form_validation->run() !== FALSE)
-        {
-            $create_nickname 		 = $this->input->post('create_nickname');
-            $create_pass 	  		 = $this->input->post('create_pass');
-            $create_email 	  		 = $this->input->post('create_email');
-            $this->visage_livre_model->create_user($create_nickname,$create_pass,$create_email);
-
-            $connect_nickname = $create_nickname;
-            $connect_pass     = $create_pass;
-            $connect_email    = $create_email;
-
-            $this->session->set_userdata('connect_nickname', $connect_nickname);
-            $this->session->set_userdata('connect_pass', $connect_pass);
-            $this->session->set_userdata('connect_email', $connect_email);
-
-            $data['content'] = 'page_home';
-        }
+			$data['content'] = 'page_home';
+		}
 		
 		$this->load->vars($data);
 		$this->load->view('template');
-		
 	}
 
 	public function display_user_info()
@@ -99,7 +101,7 @@ class Visage_livre extends CI_Controller
 		$this->session->sess_destroy();
         // ?? mettre le nom du user connecté a vide
 
-        $data['content'] = 'page_connection';
+        //$data['content'] = 'page_connection';
 
         $this->load->vars($data);
         $this->load->view('template');
@@ -123,14 +125,8 @@ class Visage_livre extends CI_Controller
 			$this->visage_livre_model->visage_livre_add_post();
 			$data['content'] = 'page_home';
 		}
+        //$data['user'] = $this->visage_livre_model->get_user_connected();
 
-        $data['postlist']  = $this->visage_livre_model->visage_livre_get_post_friend_format();
-        $data['userlist']  = $this->visage_livre_model->visage_livre_get_user();
-        //les utilisateurs -1
-        $data['otheruser'] = $this->visage_livre_model->visage_livre_get_notconnected_user();
-        $data['user']      = $this->visage_livre_model->get_user_connected();
-
-        //var_dump($data['postlist']); --> empty
 		$this->load->vars($data);
 		$this->load->view('template');
 	}
@@ -150,8 +146,8 @@ class Visage_livre extends CI_Controller
 			$this->visage_livre_model->visage_livre_add_comment($iddoc);
 			$data['content'] = 'page_home';
 		}
-		//$this->load->vars($data);
-		//$this->load->view('template');
+		$this->load->vars($data);
+		$this->load->view('template');
 	}
 
 	//friend request
