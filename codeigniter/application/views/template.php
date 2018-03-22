@@ -12,7 +12,7 @@
 <body>
 <div id ="global">
     <nav class="navbar navbar-default" id="nav">
-        <div class="container-fluid">
+        <div class="container-fluid alignItems">
             <div class="alignItems">
                 <img src="<?php echo base_url(); ?>application/public/images/logo_visage_livre.png" class="navbar-logo">
                 <a class="navbar-brand" href="#" id="linkVisageLivre">Visage livre</a>
@@ -71,11 +71,7 @@
     </nav>
 
     <div class="row">
-        <div id ="contenu" class="col-lg-8 offset-lg-2 globalContent">
-            <div class="col-lg-10 offset-lg-1">
-                <?php $this->load->view($content);?>
-            </div>
-        </div>
+        <?php $this->load->view($content);?>
         <?php if($this->session->userdata('connect_nickname') != null)
             {
         ?>
