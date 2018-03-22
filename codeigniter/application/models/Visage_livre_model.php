@@ -178,10 +178,11 @@ class Visage_livre_model extends CI_Model
 	//afficher la liste des amis d'un user
 	public function visage_livre_get_user_friend(){
 		$name = $this->get_user_connected();
-		$this->db->select('visagelivre._user.nickname');
-		$this->db->from('visagelivre._user use');
-		$this->db->join('_friendof friend','friend.nickname = use.nickname or friend.friend = use.nickname','inner join');
-		$this->db->where("use.nickname != '$name'");
+		$this->db->distinct();
+		$this->db->select('_user.nickname');
+		$this->db->from('_user');
+		$this->db->join('_friendof','_friendof.nickname = _user.nickname or _friendof.friend = _user.nickname','inner join');
+		$this->db->where("_user.nickname != '$name'");
 		$query=$this->db->get();
 		
 		return $query->result_array();
