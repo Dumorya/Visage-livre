@@ -12,6 +12,7 @@ html, body
 body
 {
 	background-color: #f5f5f5 !important;
+	height: 100%;
 }
 
 nav
@@ -21,6 +22,7 @@ nav
 	color: white;
 	width: 100%;
 	z-index: 10;
+	height: 70px;
 }
 
 /*#filterButtonContainer, nav*/
@@ -60,7 +62,7 @@ nav
 	transition: all .16s ease-in-out;
 }
 
-#linkOpenFoodFacts
+#linkVisageLivre
 {
 	font-family: 'Segoe UI', sans-serif;
 	font-size: 2em;
@@ -68,7 +70,7 @@ nav
 	transition: all .16s ease-in-out;
 }
 
-#linkOpenFoodFacts:hover
+#linkVisageLivre:hover
 {
 	color: #c2cfea;
 	transition: all .16s ease-in-out;
@@ -87,7 +89,7 @@ form > label
 
 .navbar-logo
 {
-	height: 50px;
+	height: 45px;
 	width: auto;
 }
 
@@ -116,6 +118,47 @@ form > label
 	text-rendering: optimizelegibility;
 
 	font-size: 1.3em;
+}
+
+.alignItems
+{
+	display: flex;
+	align-items: center;
+}
+
+.friendsIcon
+{
+	cursor: pointer;
+}
+
+.separationLine
+{
+	border-left: 1px solid white;
+	height: 50px;
+	margin-left: 30px;
+}
+
+.userList
+{
+	background-color: #e0e0e0;
+	padding: 0px 20px;
+	border-left: 2px solid #aeaeae;
+	height: calc(100vh - 70px);
+
+	overflow-y: hidden;
+}
+
+.userList:hover
+{
+	overflow-y: scroll;
+}
+
+.deleteFriend
+{
+	background-color: transparent;
+	color: red;
+	border: none;
+	cursor: pointer;
 }
 
 /* ============== */
@@ -174,12 +217,31 @@ form > label
 /* CSS OVERRIDE */
 /* ============== */
 
-.form-control {
+.form-control
+{
 	width: auto;
 	display: inline !important;
 }
 
-caption {
+caption
+{
 	text-align: center !important;
 	caption-side: top !important;
+}
+
+.dropbtn > form
+{
+	margin-bottom: 0px !important;
+}
+
+.row
+{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+
+#userList
+{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }

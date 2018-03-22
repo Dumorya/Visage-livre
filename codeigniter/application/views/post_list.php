@@ -1,9 +1,11 @@
 <div>
+	<h2>Liste des posts de vos amis</h2>
 	<ul>
 	
 	<?php
 	$this->load->model('visage_livre_model');
 	$postlist = $this->visage_livre_model->visage_livre_get_post_format();
+
 	foreach ($postlist as $post_item ) { ?>
 	<li>
 		<?php $iddoc = $post_item['iddoc']; ?>
