@@ -1,5 +1,5 @@
 <div>
-	<h2>Liste des posts de vos amis</h2>
+	<h2>Liste des posts</h2>
 	<ul>
 	
 	<?php
