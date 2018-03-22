@@ -742,13 +742,13 @@
         </div>\
       </div>\
       <div class="comment-content">\
-        <p class="tagline comment">\
+        <p class="tagline post">\
           <span class="user-id"><%username%></span>\
           <span class="rating"><%pretty_rating%></span>\
           <span class="delta"><%time.delta%></span>\
         </p>\
-        <div class="comment-text comment"><#text#></div>\
-        <p class="comment-opts comment">\
+        <div class="comment-text post"><#text#></div>\
+        <p class="comment-opts post">\
           <a href="#" class="reply hidden" id="rl<%id%>">reply &#9657;</a>\
           <a href="#" class="close-reply" id="cr<%id%>">reply &#9663;</a>\
           <a href="#" id="sp<%id%>" class="show-proposal">proposal &#9657;</a>\

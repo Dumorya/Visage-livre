@@ -141,10 +141,10 @@ form > label
 
 .userList
 {
-	background-color: #e0e0e0;
+	background-color: #e8eaf6;
 	padding-left: 20px;
 	padding-right: 20px;
-	border-left: 2px solid #aeaeae;
+	border-left: 2px solid #b6b8c3;
 	height: 100vh;
 	width: 100%;
 	padding-top: 100px;
@@ -269,6 +269,65 @@ form > label
 	border-color: #29487d;
 }
 
+.post
+{
+	border: 1px solid #ced4da;
+	background-color: white;
+	border-radius: .25rem;
+
+	margin-bottom: 50px;
+
+	list-style: none !important;
+}
+
+.comment
+{
+	background-color: #f6f7f9 !important;
+	padding: 25px;
+}
+
+.newComment
+{
+	border-radius: 20px !important;
+}
+
+.sendCommentButton
+{
+	padding: .375rem .75rem;
+	margin-bottom: 0;
+	margin-left: 10px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: white;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #4267b2;
+	border: 1px solid #29487d;
+	border-radius: 20px;
+}
+
+.paddingPost
+{
+	padding: 30px;
+}
+
+.marginPosts
+{
+	margin-top: 50px;
+}
+
+.postContent
+{
+	font-size: 1.2em;
+}
+
+.postDate
+{
+	font-size: 0.8em;
+	color: #9ea7aa;
+}
+
 /* ============== */
 /* DROP DOWN MENU */
 /* ============== */
@@ -331,7 +390,7 @@ caption
 	caption-side: top !important;
 }
 
-.dropbtn > form, #login > form
+.dropbtn > form, #login > form, .comment > form
 {
 	margin-bottom: 0px !important;
 }
@@ -351,5 +410,10 @@ caption
 .fa-home
 {
 	color: #1a2947 !important;
+}
+
+.post > hr
+{
+	margin-bottom: 0px !important;
 }
 
