@@ -24,7 +24,7 @@
 	<ul>
         <?php
         
-        $otheruser  = $this->visage_livre_model->visage_livre_get_notconnected_user();
+        $otheruser  = $this->visage_livre_model->visage_livre_get_user_notfriend();
         foreach ($otheruser as $user_item ){ ?>
             <li>
                 <span><?php echo $user_item['nickname'] ?></span>

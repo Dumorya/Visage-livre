@@ -182,16 +182,27 @@ class Visage_livre_model extends CI_Model
 		$this->db->select('_user.nickname');
 		$this->db->from('_user');
 		$this->db->join('_friendof','_friendof.nickname = _user.nickname or _friendof.friend = _user.nickname','inner join');
-		$this->db->where("_user.nickname != '$name'");
+		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') and _user.nickname != '$name'");
 		$query=$this->db->get();
 		
 		return $query->result_array();
 	}
 	//afficher la liste des utilisateurs
-	public function visage_livre_get_user()
-	{
-		$this->db->select('_user.nickname,_user.pass,_user.email');
+	public function visage_livre_get_user_notfriend(){
+		$name = $this->get_user_connected();
+		$this->db->select('_user.nickname');
 		$this->db->from('_user');
+		$this->db->where("_user.nickname != '$name'");
+		$this->db->where_not_in("select distinct use.nickname
+			from _user inner join _friendof
+			on _user.nickname = _friendof.nickname or _user.nickname = _friendof.friend
+			where (_friendof.nickname = '$name' or _friendof.friend = '$name')
+			and _user.nickname != '$name'");
+		/*$this->db->distinct(); 
+		$this->db->select('_user.nickname');
+		$this->db->from('_user');
+		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');	
+		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') and _user.nickname != '$name'");*/
 		$query=$this->db->get();
 
 		return $query->result_array();
