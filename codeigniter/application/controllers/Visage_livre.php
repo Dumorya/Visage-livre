@@ -187,6 +187,14 @@ class Visage_livre extends CI_Controller
     {
 		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
 	}
+
+	public function redirect_page_home()
+	{
+        $data['content'] = 'page_home';
+
+		$this->load->vars($data);
+		$this->load->view('template');
+	}
 }
 ?>
 

@@ -24,7 +24,12 @@
             ?>
                     <div class="row alignItems">
                         <div>
-                            <a onclick="window.location='<?php echo site_url("visage_livre/page_home");?>'">
+                            <a onclick="window.location='<?php echo site_url("visage_livre/redirect_page_home");?>'" class="cursorPointer">
+                                <i class="fa fa-home fa-2x"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a onclick="window.location='<?php echo site_url("visage_livre/friend_requests");?>'">
                                 <img src="<?php echo base_url(); ?>application/public/images/man-and-woman-avatar.png" alt="icône amis" class="friendsIcon"/>
                             </a>
                         </div>
@@ -66,8 +71,10 @@
     </nav>
 
     <div class="row">
-        <div id ="contenu" class="col-lg-8 offset-lg-2">
-            <?php $this->load->view($content);?>
+        <div id ="contenu" class="col-lg-8 offset-lg-2 globalContent">
+            <div class="col-lg-10 offset-lg-1">
+                <?php $this->load->view($content);?>
+            </div>
         </div>
         <?php if($this->session->userdata('connect_nickname') != null)
             {
@@ -81,7 +88,6 @@
     </div>
 
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

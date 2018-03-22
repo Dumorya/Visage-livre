@@ -144,6 +144,7 @@ form > label
 	padding: 0px 20px;
 	border-left: 2px solid #aeaeae;
 	height: calc(100vh - 70px);
+	padding-top: 30px;
 
 	overflow-y: hidden;
 }
@@ -159,6 +160,67 @@ form > label
 	color: red;
 	border: none;
 	cursor: pointer;
+}
+
+.globalContent
+{
+	margin-top: 30px;
+}
+
+.cursorPointer
+{
+	cursor: pointer;
+}
+
+.textAlign
+{
+	text-align: center;
+}
+
+.postSubmit
+{
+	background-color: #4267b2;
+	color: white;
+
+	border: 1px solid #4267b2;
+	border-radius: 2px;
+	box-sizing: content-box;
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	justify-content: center;
+	text-align: center;
+	text-shadow: none;
+	vertical-align: middle;
+
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	white-space: nowrap;
+
+	line-height: 22px;
+	padding: 5px 20px;
+
+	margin-top: 20px;
+
+	transition: 200ms cubic-bezier(.08,.52,.52,1) background-color,
+				200ms cubic-bezier(.08,.52,.52,1) box-shadow,
+				200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+.postSubmit:hover
+{
+	background-color: #365899;
+	border-color: #365899;
+
+	transition: 200ms cubic-bezier(.08,.52,.52,1) background-color,
+				200ms cubic-bezier(.08,.52,.52,1) box-shadow,
+				200ms cubic-bezier(.08,.52,.52,1) transform;
+
+}
+
+.createPost
+{
+	margin: 50px 0px;
 }
 
 /* ============== */
@@ -244,4 +306,9 @@ caption
 {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
+}
+
+.fa-home
+{
+	color: #1a2947 !important;
 }
