@@ -317,6 +317,11 @@ form > label
 	margin-top: 50px;
 }
 
+.marginPosts > ul
+{
+	padding-left: 0px !important;
+}
+
 .postContent
 {
 	font-size: 1.2em;
@@ -326,6 +331,11 @@ form > label
 {
 	font-size: 0.8em;
 	color: #9ea7aa;
+}
+
+.marginIconNavbar
+{
+	margin-right: 30px;
 }
 
 /* ============== */
@@ -407,13 +417,17 @@ caption
 	padding-right: 0px !important;
 }
 
-.fa-home
-{
-	color: #1a2947 !important;
-}
-
 .post > hr
 {
 	margin-bottom: 0px !important;
 }
 
+.marginIconNavbar > a
+{
+	color: #1a2947 !important;
+}
+
+.marginIconNavbar > a:hover
+{
+	color: #0d1524 !important;
+}

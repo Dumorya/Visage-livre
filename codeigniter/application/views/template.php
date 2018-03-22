@@ -23,14 +23,14 @@
                 {
             ?>
                     <div class="row alignItems">
-                        <div>
+                        <div class="marginIconNavbar">
                             <a onclick="window.location='<?php echo site_url("visage_livre/redirect_page_home");?>'" class="cursorPointer">
                                 <i class="fa fa-home fa-2x"></i>
                             </a>
                         </div>
-                        <div>
-                            <a onclick="window.location='<?php echo site_url("visage_livre/friend_requests");?>'">
-                                <img src="<?php echo base_url(); ?>application/public/images/man-and-woman-avatar.png" alt="icône amis" class="friendsIcon"/>
+                        <div class="marginIconNavbar">
+                            <a onclick="window.location='<?php echo site_url("visage_livre/friend_requests");?>'" class="cursorPointer">
+                                <i class="fa fa-users fa-2x"></i>
                             </a>
                         </div>
                         <span class="separationLine"></span>
