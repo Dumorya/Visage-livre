@@ -223,6 +223,39 @@ form > label
 	margin: 50px 0px;
 }
 
+.labelLogin
+{
+	font-size: 20px;
+}
+
+.loginButton
+{
+	background-color: #4267b2;
+	border: 1px solid #29487d;
+
+	border-radius: 2px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	line-height: 18px;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: none;
+	vertical-align: top;
+	white-space: nowrap;
+
+	color: white;
+}
+
+.loginButton:hover
+{
+	background-color: #365899;
+	border-color: #29487d;
+}
+
 /* ============== */
 /* DROP DOWN MENU */
 /* ============== */
@@ -279,19 +312,13 @@ form > label
 /* CSS OVERRIDE */
 /* ============== */
 
-.form-control
-{
-	width: auto;
-	display: inline !important;
-}
-
 caption
 {
 	text-align: center !important;
 	caption-side: top !important;
 }
 
-.dropbtn > form
+.dropbtn > form, #login > form
 {
 	margin-bottom: 0px !important;
 }
@@ -312,3 +339,4 @@ caption
 {
 	color: #1a2947 !important;
 }
+
