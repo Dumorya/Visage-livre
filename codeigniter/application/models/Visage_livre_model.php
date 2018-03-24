@@ -153,27 +153,25 @@ class Visage_livre_model extends CI_Model
 	{
 		$nb = 30; //nombre de caractères a partir desquels on coupe l'affichage
 		$name = $this->get_user_connected();
-		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
-							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
-		$this->db->from('_document');
-		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
-		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');
-		$this->db->join('_post','_document.iddoc = _post.iddoc','inner join');
-		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') or _document.auteur = '$name'");
-		$this->db->order_by('_document.create_date desc');
-		$answer1=$this->db->get()->result_array();
-
-		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
-							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
-		$this->db->from('_document');
-		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
-		$this->db->where("_document.auteur = '$name'");
-		$this->db->order_by('_document.create_date desc');
-		$answer2=$this->db->get()->result_array();
-		$query = array_merge($answer1, $answer2);
-		return $query;	
+		$cont = ' ...';
+		$sql = "
+		select case when length(_document.content)>? then substring(_document.content from 1 for ?)||? else substring(_document.content from 1 for 30) end as content,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc
+		from visagelivre._document
+		inner join visagelivre._post on _post.iddoc=_document.iddoc
+		inner join visagelivre._friendof on _document.auteur = _friendof.nickname or _document.auteur = _friendof.friend
+		where (_friendof.nickname = ? or _friendof.friend = ?) and _document.auteur != ?
+		union
+		select case when length(_document.content)>? then substring(_document.content from 1 for ?)||? else substring(_document.content from 1 for 30) end as content,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc
+		from visagelivre._document
+		inner join visagelivre._post on _post.iddoc=_document.iddoc
+		where visagelivre._document.auteur = ?
+		order by create_date desc";
+		
+		$result=$this->db->query($sql,array($nb,$nb,$cont,$name,$name,$name,$nb,$nb,$cont,$name))->result_array();
+		return $result;
+		
 	}
-
+	//afficher la liste des posts publiés par le user connecté
     public function visage_livre_get_user_post()
     {
         $nb = 30; //nombre de caractères a partir desquels on coupe l'affichage
@@ -181,23 +179,11 @@ class Visage_livre_model extends CI_Model
         $this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
 							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
         $this->db->from('_document');
-        $this->db->join('_user','_document.auteur=_user.nickname','left join');
-        $this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','left join');
-        $this->db->join('_post','_document.iddoc = _post.iddoc','left join');
+        $this->db->join('_post','_post.iddoc=_document.iddoc','inner join');
         $this->db->where("_document.auteur = '$name'");
         $this->db->order_by('_document.create_date desc');
-        $answer1=$this->db->get()->result_array();
-
-        $this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
-							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
-        $this->db->from('_document');
-        $this->db->join('_user','_document.auteur=_user.nickname','left join');
-        $this->db->where("_document.auteur = '$name'");
-        $this->db->order_by('_document.create_date desc');
-        $answer2=$this->db->get()->result_array();
-
-        $query = array_merge($answer1, $answer2);
-        return $query;
+        $query = $this->db->get();
+		return $query->result_array();
     }
 
 	//afficher la liste des amis d'un user

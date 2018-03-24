@@ -23,7 +23,6 @@
                 <?php
                 $this->load->model('visage_livre_model');
                 $postlist = $this->visage_livre_model->visage_livre_get_user_post();
-
                 foreach ($postlist as $post_item ) { ?>
                     <li class="post">
                         <div class="paddingPost">
