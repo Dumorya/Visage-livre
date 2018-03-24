@@ -4,17 +4,30 @@ class Visage_livre extends CI_Controller
 	public function __construct()
     {
 		parent::__construct();
+        $this->clear_cache();
+		$this->load->helper([
+			'url',
+			'form'
+		]);
+        $this->load->library([
+        	'session',
+			'form_validation'
+		]);
 		$this->load->model('visage_livre_model');
-		$this->load->helper('url');
-        $this->load->library('session');
+    }
+
+    private function clear_cache()
+    {
+        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
+        $this->output->set_header("Pragma: no-cache");
+        if (file_exists('C:\wamp64\www\visage_livre\codeigniter\application\cache\index.html'))
+        {
+            unlink('C:\wamp64\www\visage_livre\codeigniter\application\cache\index.html');
+        }
     }
 
 	public function index()
     {
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-        $this->load->library('session');
-
         $data['content'] = 'page_connection';
 
 		$this->load->vars($data);
@@ -23,10 +36,6 @@ class Visage_livre extends CI_Controller
 
 	public function connect()
 	{
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-        $this->load->library('session');
-
         $data['content'] = 'page_connection';
 
         //Récupérer les données saisies envoyées en POST
@@ -60,10 +69,6 @@ class Visage_livre extends CI_Controller
 
 	public function create_account()
 	{
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $this->load->library('session');
-
         $data['content'] = 'create_user';
 
         // Création d'un compte
@@ -112,14 +117,10 @@ class Visage_livre extends CI_Controller
 
     public function logout()
     {
-        $this->load->library('session');
-
 		$this->session->sess_destroy();
 
-        $data['content'] = 'page_connection';
+        redirect('/', 'refresh');
 
-        $this->load->vars($data);
-        $this->load->view('template');
     }
 
 	//afficher les posts et les commentaires
@@ -128,9 +129,6 @@ class Visage_livre extends CI_Controller
 	//creer un post
 	public function create_post()
 	{
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 
 		if ($this->form_validation->run()!== FALSE )
@@ -149,9 +147,6 @@ class Visage_livre extends CI_Controller
 	//creer un comment
 	public function create_comment($iddoc)
     {
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
 		if ($this->form_validation->run()!== FALSE )
 		{

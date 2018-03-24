@@ -423,6 +423,11 @@ $config['cookie_httponly'] 	= FALSE;
 */
 $config['standardize_newlines'] = FALSE;
 
+/**
+ * supprime les cokkie de session au logout
+ */
+$config['delete_session_cookie_on_logout'] = TRUE;
+
 /*
 |--------------------------------------------------------------------------
 | Global XSS Filtering
