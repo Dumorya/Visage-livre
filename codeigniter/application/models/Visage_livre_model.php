@@ -78,7 +78,7 @@ class Visage_livre_model extends CI_Model
 
 		return $answer->result_array();	
 	}
-	//récupérer les commentaires à l'infini
+	//récupérer les commentaires à l'infini //ne fonctionne pas a l'infini
 	public function visage_livre_get_list_comment($iddoc)
 	{
 		$this->db->select('ref');
@@ -156,9 +156,9 @@ class Visage_livre_model extends CI_Model
 		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
 							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
 		$this->db->from('_document');
-		$this->db->join('_user','_document.auteur=_user.nickname','left join');
-		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','left join');
-		$this->db->join('_post','_document.iddoc = _post.iddoc','left join');
+		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
+		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');
+		$this->db->join('_post','_document.iddoc = _post.iddoc','inner join');
 		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') or _document.auteur = '$name'");
 		$this->db->order_by('_document.create_date desc');
 		$answer1=$this->db->get()->result_array();
@@ -166,11 +166,10 @@ class Visage_livre_model extends CI_Model
 		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
 							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
 		$this->db->from('_document');
-		$this->db->join('_user','_document.auteur=_user.nickname','left join');
+		$this->db->join('_user','_document.auteur=_user.nickname','inner join');
 		$this->db->where("_document.auteur = '$name'");
 		$this->db->order_by('_document.create_date desc');
 		$answer2=$this->db->get()->result_array();
-
 		$query = array_merge($answer1, $answer2);
 		return $query;	
 	}
@@ -187,25 +186,20 @@ class Visage_livre_model extends CI_Model
 		
 		return $query->result_array();
 	}
-	//afficher la liste des utilisateurs
+	//afficher la liste des utilisateurs pas amis avec le user connecte
 	public function visage_livre_get_user_notfriend(){
 		$name = $this->get_user_connected();
-		$this->db->select('_user.nickname');
-		$this->db->from('_user');
-		$this->db->where("_user.nickname != '$name'");
-		$this->db->where_not_in("select distinct use.nickname
-			from _user inner join _friendof
-			on _user.nickname = _friendof.nickname or _user.nickname = _friendof.friend
-			where (_friendof.nickname = '$name' or _friendof.friend = '$name')
-			and _user.nickname != '$name'");
-		/*$this->db->distinct(); 
-		$this->db->select('_user.nickname');
-		$this->db->from('_user');
-		$this->db->join('_friendof','_user.nickname = _friendof.nickname or _user.nickname = _friendof.friend','inner join');	
-		$this->db->where("(_friendof.nickname = '$name' or _friendof.friend = '$name') and _user.nickname != '$name'");*/
-		$query=$this->db->get();
-
-		return $query->result_array();
+		$sql = "select use.nickname from visagelivre._user use
+			where use.nickname != ?
+			except
+			select distinct use.nickname
+			from visagelivre._user use inner join visagelivre._friendof fri
+			on use.nickname = fri.nickname or use.nickname = fri.friend
+			where (fri.nickname = ? or fri.friend = ?)
+			and use.nickname != ?";
+		$query=$this->db->query($sql,array($name,$name,$name,$name));
+		$result=$query->result_array();
+		return $result;
 	}
 	//afficher la liste des utilisateurs sauf le connecté
 	public function visage_livre_get_notconnected_user()

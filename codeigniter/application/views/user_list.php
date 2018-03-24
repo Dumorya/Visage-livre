@@ -9,7 +9,7 @@
             foreach ($frienduser as $user_item){?>
 					<li>
                         <span><?php echo $user_item['nickname']?></span>
-                        <button class="deleteFriend" onclick="window.location='<?php echo site_url("visage_livre/delete_friend");?>">
+                        <button class="deleteFriend" onclick="window.location='<?php echo site_url("visage_livre/send_friend_request");?>">
                             <i class="fa fa-user-times"></i>
                         </button>
                     </li>
