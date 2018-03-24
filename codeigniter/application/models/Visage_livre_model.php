@@ -186,6 +186,18 @@ class Visage_livre_model extends CI_Model
 		return $query->result_array();
     }
 
+    public function visage_livre_get_full_user_post($iddoc)
+    {
+		$this->db->select("_document.content as content,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
+        $this->db->from('_document');
+        $this->db->join('_user','_document.auteur=_user.nickname','left join');
+        $this->db->where('_document.iddoc', $iddoc);
+        $this->db->order_by('_document.create_date desc');
+        $query=$this->db->get();
+
+        return $query->result_array();
+    }
+
 	//afficher la liste des amis d'un user
 	public function visage_livre_get_user_friend(){
 		$name = $this->get_user_connected();
@@ -267,7 +279,7 @@ class Visage_livre_model extends CI_Model
 		return $this->db->insert('_post',$data);
 	}
 
-	//ajouter un comment, un param le iddoc du post concerné
+	//ajouter un comment, en param le iddoc du post concerné
 	public function visage_livre_add_comment($ref)
 	{
 		$this->db->select('max(_document.iddoc)');
@@ -277,13 +289,15 @@ class Visage_livre_model extends CI_Model
 
 		foreach($iddocs as $iddoc)
 		{
-			$id=$iddoc['max'];
+			$id = $iddoc['max'];
+
+            $data = array
+            (
+                'iddoc' => $id,
+                'ref' => $ref
+            );
 		}
-		$data = array
-		(
-			'iddoc' => $id,
-			'ref' => $ref
-		);
+
 
 		return $this->db->insert('_comment',$data);
 	}
@@ -328,29 +342,29 @@ class Visage_livre_model extends CI_Model
 
 	public function visage_livre_accept_friend_request($nickname,$target)
 	{
-		$data = array
-		(
-			'nickname' => $nickname,
-			'friend' => $friend
-		);
-
-		return $this->db->insert('_friendof',$data);
+//		$data = array
+//		(
+//			'nickname' => $nickname,
+//			'friend' => $friend
+//		);
+//
+//		return $this->db->insert('_friendof',$data);
 	}
 
 	public function visage_livre_delete_friend($nickname,$target)
 	{
-		$data = array(
-			'nickname' => $nickname,
-			'friend' => $friend
-		);
-
-		$data2 = array(
-			'nickname' => $friend,
-			'friend' => $nickname
-		);
-
-		$this->db->delete('_friendof',$data);
-		$this->db->delete('_friendof',$data2);
+//		$data = array(
+//			'nickname' => $nickname,
+//			'friend' => $friend
+//		);
+//
+//		$data2 = array(
+//			'nickname' => $friend,
+//			'friend' => $nickname
+//		);
+//
+//		$this->db->delete('_friendof',$data);
+//		$this->db->delete('_friendof',$data2);
 	}
 	
 }

@@ -1,5 +1,5 @@
 <div class="userList">
-    <h2>MES AMIS</h2>
+    <h4>MES AMIS</h4>
     <hr>
 
     <ul>
@@ -19,7 +19,7 @@
         
     </ul>
 
-    <h2>AUTRES UTILISATEURS</h2>
+    <h4>AUTRES UTILISATEURS</h4>
     <hr>
 	<ul>
         <?php

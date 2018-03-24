@@ -19,10 +19,8 @@
             </div>
 
             <?php
-                error_log('template ' . $this->session->userdata('connect_nickname'));
                 if($this->session->userdata('connect_nickname') != null)
                 {
-
             ?>
                     <div class="row alignItems">
                         <div class="marginIconNavbar">

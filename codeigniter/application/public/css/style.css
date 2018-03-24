@@ -318,6 +318,29 @@ form > label
 	border-radius: 20px !important;
 }
 
+.coms
+{
+	border-radius: 20px;
+	background-color: white;
+	display: inline-block;
+	padding: 10px;
+	width: auto !important;
+}
+
+.coms > label:first-child
+{
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-right: 15px;
+}
+
+.coms > label:nth-child(2)
+{
+	font-size: 0.8em;
+	color: #9ea7aa;
+	padding-right: 20px;
+}
+
 .sendCommentButton
 {
 	padding: .375rem .75rem;
@@ -364,6 +387,34 @@ form > label
 {
 	margin-right: 30px;
 }
+
+.seeMoreLink
+{
+	color: #007bff !important;
+	text-decoration: none !important;
+	background-color: transparent !important;
+}
+
+.seeMoreLink:hover, .answerComment:hover
+{
+	color: #0056b3 !important;
+	text-decoration: underline !important;
+}
+
+.answerComment
+{
+	color: #007bff !important;
+	text-decoration: none !important;
+	background-color: transparent !important;
+	padding-left: 15px;
+}
+
+.commentPartHidden
+{
+	display: none;
+}
+
+
 
 /* ============== */
 /* DROP DOWN MENU */

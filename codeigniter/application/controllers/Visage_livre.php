@@ -140,24 +140,38 @@ class Visage_livre extends CI_Controller
 		}
         //$data['user'] = $this->visage_livre_model->get_user_connected();
 
+        if(isset($_GET['iddoc']))
+        {
+            $data['iddoc'] = $_GET['iddoc'];
+        }
+
 		$this->load->vars($data);
-		$this->load->view('template');
+		$this->load->view('template', $data);
 	}
 
 	//creer un comment
-	public function create_comment($iddoc)
+	public function create_comment()
     {
 		$this->form_validation->set_rules ('content' , 'content' , 'required');
+
 		if ($this->form_validation->run()!== FALSE )
 		{
 			$content = $this->input->post('content');
-			
+
+            if(isset($_GET['iddoc']))
+            {
+                $data['iddoc'] = $_GET['iddoc'];
+                $data['content'] = 'post_details';
+            }
+
 			$this->visage_livre_model->visage_livre_add_document($content);
-			$this->visage_livre_model->visage_livre_add_comment($iddoc);
+			$this->visage_livre_model->visage_livre_add_comment($data['iddoc']);
+
 			$data['content'] = 'page_home';
 		}
+
 		$this->load->vars($data);
-		$this->load->view('template');
+		$this->load->view('template', $data);
 	}
 
 	//friend request
@@ -189,6 +203,18 @@ class Visage_livre extends CI_Controller
 
 		$this->load->vars($data);
 		$this->load->view('template');
+	}
+
+	public function see_more()
+	{
+        if(isset($_GET['iddoc']))
+		{
+			$data['iddoc'] = $_GET['iddoc'];
+            $data['content'] = 'post_details';
+        }
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
 	}
 }
 ?>
