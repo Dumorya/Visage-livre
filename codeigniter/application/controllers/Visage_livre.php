@@ -275,6 +275,16 @@ class Visage_livre extends CI_Controller
         $this->load->vars($data);
         $this->load->view('template');
     }
+
+    public function display_request_sent($nickname)
+    {
+        $this->visage_livre_model->visage_livre_display_request_sent($nickname);
+
+        $data['content'] = 'page_home';
+
+        $this->load->vars($data);
+        $this->load->view('template');
+    }
 }
 ?>
 

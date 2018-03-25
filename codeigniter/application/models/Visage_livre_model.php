@@ -205,7 +205,8 @@ class Visage_livre_model extends CI_Model
     }
 
 	//afficher la liste des amis d'un user
-	public function visage_livre_get_user_friend(){
+	public function visage_livre_get_user_friend()
+	{
 		$name = $this->get_user_connected();
 		$this->db->distinct();
 		$this->db->select('_user.nickname');
@@ -216,6 +217,7 @@ class Visage_livre_model extends CI_Model
 		
 		return $query->result_array();
 	}
+
 	//afficher la liste des utilisateurs pas amis avec le user connecte
 	public function visage_livre_get_user_notfriend(){
 		$name = $this->get_user_connected();
@@ -231,17 +233,20 @@ class Visage_livre_model extends CI_Model
 		$result=$query->result_array();
 		return $result;
 	}
+
 	//afficher la liste des utilisateurs sauf le connecté
 	public function visage_livre_get_notconnected_user()
 	{
 		$name = $this->session->userdata('connect_nickname');
 		$this->db->select('_user.nickname,_user.pass,_user.email');
 		$this->db->from('_user');
-		$this->db->where("_user.nickname != '$name'");
-		$query=$this->db->get();
+        $this->db->where('nickname', $this->visage_livre_model->get_user_connected());
+
+        $query=$this->db->get();
 
 		return $query->result_array();
 	}
+	
 	//affiche les demandes d'amitié reçues par nickname
 	public function visage_livre_get_friend_request($nickname)
 	{
@@ -369,8 +374,15 @@ class Visage_livre_model extends CI_Model
 			'friend' => $target
 		);
 
-		return $this->db->insert('_friendof',$data);
-	}
+        $data2 = array
+        (
+            'nickname' => $target,
+            'friend' => $nickname
+        );
+
+		$this->db->insert('_friendof',$data);
+		$this->db->insert('_friendof',$data2);
+    }
 
 	public function visage_livre_delete_friend($nickname,$target)
 	{
@@ -398,6 +410,16 @@ class Visage_livre_model extends CI_Model
 
         return $query->result_array();
 	}
+
+    public function visage_livre_display_request_sent($nickname)
+    {
+        $this->db->select();
+        $this->db->from('_friendrequest');
+        $this->db->where('nickname', $this->visage_livre_model->get_user_connected());
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 	
 }
 ?>
