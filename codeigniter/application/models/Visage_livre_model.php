@@ -372,6 +372,15 @@ class Visage_livre_model extends CI_Model
 //		$this->db->delete('_friendof',$data);
 //		$this->db->delete('_friendof',$data2);
 	}
+
+	public function visage_livre_display_request()
+	{
+        $this->db->select();
+        $this->db->from('_friendrequest');
+        $query = $this->db->get();
+
+        return $query->result_array();
+	}
 	
 }
 ?>

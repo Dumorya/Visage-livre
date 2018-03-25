@@ -323,7 +323,7 @@ form > label
 	border-radius: 20px;
 	background-color: white;
 	display: inline-block;
-	padding: 10px;
+	padding: 5px;
 	width: auto !important;
 }
 
@@ -417,6 +417,12 @@ form > label
 .trashIconPost
 {
 	float: right;
+	color: #1a2947 !important;
+}
+
+.trashIconPost:hover
+{
+	color: #0d1524 !important;
 }
 
 .trashIconComment
@@ -508,12 +514,12 @@ caption
 	margin-bottom: 0px !important;
 }
 
-.marginIconNavbar > a
+.marginIconNavbar > a, .trashIconComment
 {
 	color: #1a2947 !important;
 }
 
-.marginIconNavbar > a:hover
+.marginIconNavbar > a:hover, .trashIconComment:hover
 {
 	color: #0d1524 !important;
 }

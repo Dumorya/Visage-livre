@@ -207,8 +207,9 @@ class Visage_livre extends CI_Controller
 
 	//friend request
 	
-	public function send_friend_request($nickname,$target)
+	public function send_friend_request($nickname = 0,$target = 0)
     {
+        var_dump("je passe");
 		$this->visage_livre_model->visage_livre_send_friend_request($nickname,$target);
 	}
 	
@@ -247,6 +248,14 @@ class Visage_livre extends CI_Controller
         $this->load->vars($data);
         $this->load->view('template', $data);
 	}
+
+	public function friend_requests()
+    {
+        $data['content'] = 'friend_requests';
+
+        $this->load->vars($data);
+        $this->load->view('template');
+    }
 }
 ?>
 

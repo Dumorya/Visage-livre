@@ -9,7 +9,7 @@
             foreach ($frienduser as $user_item){?>
 					<li>
                         <span><?php echo $user_item['nickname']?></span>
-                        <button class="deleteFriend" onclick="window.location='<?php echo site_url("visage_livre/send_friend_request");?>">
+                        <button class="deleteFriend" onclick="window.location='<?php echo site_url("visage_livre/delete_friend");?>">
                             <i class="fa fa-user-times"></i>
                         </button>
                     </li>
@@ -28,7 +28,7 @@
         foreach ($otheruser as $user_item ){ ?>
             <li>
                 <span><?php echo $user_item['nickname'] ?></span>
-                <button class="addFriend" onclick="window.location='<?php echo site_url("visage_livre/delete_friend");?>">
+                <button class="addFriend" onclick="window.location='<?php echo site_url("visage_livre/send_friend_request/".$user_item['nickname']."/".$this->visage_livre_model->get_user_connected());?>'">
                     <i class="fa fa-user-plus"></i>
                 </button>
             </li>
