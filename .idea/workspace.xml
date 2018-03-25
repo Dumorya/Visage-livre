@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87e70185-659f-4b4d-9c53-1c16b7d15166" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/views/post_list.php" afterPath="$PROJECT_DIR$/codeigniter/application/views/post_list.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,10 +30,13 @@
             <state relative-caret-position="352">
               <caret line="403" column="48" lean-forward="false" selection-start-line="403" selection-start-column="20" selection-end-line="403" selection-end-column="48" />
               <folding>
-                <marker date="1521990373251" expanded="true" signature="5731:6284" ph="select case " />
-                <marker date="1521990373251" expanded="true" signature="6287:6703" ph="select case " />
-                <marker date="1521990373251" expanded="true" signature="8904:8987" ph="select use.n... _" />
-                <marker date="1521990373251" expanded="true" signature="8991:9220" ph="select disti... _" />
+                <marker date="1521994715165" expanded="true" signature="47:14216" ph="{...}" />
+                <marker date="1521994715165" expanded="true" signature="5731:6284" ph="select case " />
+                <marker date="1521994715165" expanded="true" signature="6287:6703" ph="select case " />
+                <marker date="1521994715165" expanded="true" signature="8904:8987" ph="select use.n... _" />
+                <marker date="1521994715165" expanded="true" signature="8991:9220" ph="select disti... _" />
+                <marker date="1521994715165" expanded="true" signature="13585:13900" ph="{...}" />
+                <marker date="1521994715165" expanded="true" signature="13966:14212" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -93,8 +97,8 @@
       <file leaf-file-name="post_list.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/post_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="51" column="68" lean-forward="false" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+            <state relative-caret-position="234">
+              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -356,12 +360,12 @@
       <workItem from="1521724243644" duration="18761000" />
       <workItem from="1521833142787" duration="3406000" />
       <workItem from="1521896053825" duration="34124000" />
-      <workItem from="1521972649490" duration="20351000" />
+      <workItem from="1521972649490" duration="20694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108357000" />
+    <option name="totallyTimeSpent" value="108700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -648,10 +652,13 @@
         <state relative-caret-position="352">
           <caret line="403" column="48" lean-forward="false" selection-start-line="403" selection-start-column="20" selection-end-line="403" selection-end-column="48" />
           <folding>
-            <marker date="1521990373251" expanded="true" signature="5731:6284" ph="select case " />
-            <marker date="1521990373251" expanded="true" signature="6287:6703" ph="select case " />
-            <marker date="1521990373251" expanded="true" signature="8904:8987" ph="select use.n... _" />
-            <marker date="1521990373251" expanded="true" signature="8991:9220" ph="select disti... _" />
+            <marker date="1521994715165" expanded="true" signature="47:14216" ph="{...}" />
+            <marker date="1521994715165" expanded="true" signature="5731:6284" ph="select case " />
+            <marker date="1521994715165" expanded="true" signature="6287:6703" ph="select case " />
+            <marker date="1521994715165" expanded="true" signature="8904:8987" ph="select use.n... _" />
+            <marker date="1521994715165" expanded="true" signature="8991:9220" ph="select disti... _" />
+            <marker date="1521994715165" expanded="true" signature="13585:13900" ph="{...}" />
+            <marker date="1521994715165" expanded="true" signature="13966:14212" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -718,8 +725,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/views/post_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="51" column="68" lean-forward="false" selection-start-line="51" selection-start-column="68" selection-end-line="51" selection-end-column="68" />
+        <state relative-caret-position="234">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
           <folding />
         </state>
       </provider>

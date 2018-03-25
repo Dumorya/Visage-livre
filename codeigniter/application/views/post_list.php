@@ -12,10 +12,16 @@
                     <div class="paddingPost">
                         <?php $iddoc = $post_item['iddoc']; ?>
                         <?php echo '<h3>'.$post_item['auteur'].'</h3>'; ?>
-                        <a class="trashIconPost cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/delete_post/".$iddoc);?>'">
-                            <i class="fa fa-trash fa-2x"></i>
-                        </a>
-                        <?php echo '<p class="postDate">'.$post_item['create_date'].'</p>'; ?><br/>
+                        <?php if($post_item['auteur'] === $this->visage_livre_model->get_user_connected())
+                            {
+                            ?>
+                            <a class="trashIconPost cursorPointer"
+                               onclick="window.location='<?php echo site_url("visage_livre/delete_post/" . $iddoc); ?>'">
+                                <i class="fa fa-trash fa-2x"></i>
+                            </a>
+                        <?php
+                            }
+                        echo '<p class="postDate">'.$post_item['create_date'].'</p>'; ?><br/>
                         <p class="postContent">
                             <?php echo $post_item['content'];?>
                             <?php
