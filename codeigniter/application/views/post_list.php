@@ -12,6 +12,9 @@
                     <div class="paddingPost">
                         <?php $iddoc = $post_item['iddoc']; ?>
                         <?php echo '<h3>'.$post_item['auteur'].'</h3>'; ?>
+                        <a class="trashIconPost cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/delete_post/".$iddoc);?>'">
+                            <i class="fa fa-trash fa-2x"></i>
+                        </a>
                         <?php echo '<p class="postDate">'.$post_item['create_date'].'</p>'; ?><br/>
                         <p class="postContent">
                             <?php echo $post_item['content'];?>
@@ -45,14 +48,19 @@
                         foreach ($res as $item){
                             $ref = $item['iddoc'];
                             echo '<div>';
-                            echo '<span class="coms">';
-                                echo '<label>'.$item['auteur'].' </label>'.'<label>'.$item['create_date'].'</label>';?><?php
-                                echo '<span>'.$item['content'].'</span>';?><?php
-                                $res2 = ($this->visage_livre_model->visage_livre_get_comment2($ref));
-                            echo '</span>';
-                            echo '<br/>';
+                                echo '<span class="coms">';
+                                    echo '<label>'.$item['auteur'].' </label>'.'<label>'.$item['create_date'].'</label>';?><?php
+                                    echo '<span>'.$item['content'].'</span>';?><?php
+                                    $res2 = ($this->visage_livre_model->visage_livre_get_comment2($ref));
+                                echo '</span>';
+                                echo '<br/>';
 
-                            echo '<a class="answerComment cursorPointer" onclick="displayNewComment()">Répondre</a>';
+                                echo '<a class="answerComment cursorPointer" onclick="displayNewComment()">Répondre</a>';
+                                ?>
+                                    <a class="trashIconComment cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/delete_comment/".$ref);?>'">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                <?php
                             echo '</div>';
                         ?>
 

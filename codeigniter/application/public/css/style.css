@@ -414,7 +414,15 @@ form > label
 	display: none;
 }
 
+.trashIconPost
+{
+	float: right;
+}
 
+.trashIconComment
+{
+	margin-left: 10px;
+}
 
 /* ============== */
 /* DROP DOWN MENU */

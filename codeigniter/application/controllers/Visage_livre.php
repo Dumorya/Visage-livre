@@ -174,6 +174,26 @@ class Visage_livre extends CI_Controller
 		$this->load->view('template', $data);
 	}
 
+	public function delete_post($iddoc)
+    {
+        $this->visage_livre_model->visage_livre_delete_post($iddoc);
+
+        $data['content'] = 'page_home';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
+    }
+
+    public function delete_comment($iddoc)
+    {
+        $this->visage_livre_model->visage_livre_delete_comment($iddoc);
+
+        $data['content'] = 'page_home';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
+    }
+
 	//friend request
 	
 	public function send_friend_request($nickname,$target)
