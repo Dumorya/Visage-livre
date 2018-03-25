@@ -75,8 +75,7 @@ class Visage_livre_model extends CI_Model
 	public function visage_livre_get_comment2($iddoc)
 	{
 		$nb = 30; //nombre de caractères a partir desquels on coupe l'affichage
-		$this->db->select("case when length(_document.content)>$nb then substring(_document.content from 1 for $nb)||'...' else substring(_document.content from 1 for 30) end as content
-							,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
+		$this->db->select("_document.content,to_char(_document.create_date, 'dd/mm/yy HH24:MI') as create_date,_document.auteur,_document.iddoc");
 		$this->db->from('_document');
 		$this->db->join('_comment','_document.iddoc=_comment.iddoc','inner join');
 		$this->db->where('ref',$iddoc);
