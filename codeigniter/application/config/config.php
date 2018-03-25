@@ -23,9 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://webetuinfo.iutlan.univ-rennes1.fr/szevocji/codeigniter';
-//$config['base_url'] = 'localhost/Visage_livre/codeigniter';
-$config['base_url'] = '';
+$config['base_url'] = 'http://webetuinfo.iutlan.univ-rennes1.fr/szevocji/codeigniter';
+//$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +37,6 @@ $config['base_url'] = '';
 |
 */
 $config['index_page'] = 'index.php';
-//$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -424,7 +422,7 @@ $config['cookie_httponly'] 	= FALSE;
 $config['standardize_newlines'] = FALSE;
 
 /**
- * supprime les cokkie de session au logout
+ * supprime les cookies de session au logout
  */
 $config['delete_session_cookie_on_logout'] = TRUE;
 

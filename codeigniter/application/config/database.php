@@ -72,15 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-/*
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'servbdd.iutlan.etu.univ-rennes1.fr',
-	'username' => 'szevocji',
-	'password' => 'fight0club!',
-	'database' => 'pg_szevocji',
+	'username' => '',
+	'password' => '',
+	'database' => '',
 	'dbdriver' => 'postgre',
-	'dbprefix' => '',
+	'dbprefix' => 'visagelivre.',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
@@ -94,7 +94,8 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-*/
+
+/*
 $db['default'] = array(
     'dsn'	=> '',
     'hostname' => 'localhost',
@@ -116,4 +117,5 @@ $db['default'] = array(
     'failover' => array(),
     'save_queries' => TRUE
 );
+*/
 
