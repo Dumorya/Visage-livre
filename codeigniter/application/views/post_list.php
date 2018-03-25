@@ -49,7 +49,7 @@
                             $ref = $item['iddoc'];
                             echo '<div>';
                                 echo '<span class="coms">';
-                                    echo '<label>'.$item['auteur'].' </label>'.'<label>'.$item['create_date'].'</label>';?><?php
+                                    echo '<label>'.$item['auteur'].'</label>'.'<label>'.$item['create_date'].'</label>';?><?php
                                     echo '<span>'.$item['content'].'</span>';?><?php
                                     $res2 = ($this->visage_livre_model->visage_livre_get_comment2($ref));
                                 echo '</span>';
@@ -57,10 +57,15 @@
 
                                 echo '<a class="answerComment cursorPointer" onclick="displayNewComment()">Répondre</a>';
                                 ?>
-                                    <a class="trashIconComment cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/delete_comment/".$ref);?>'">
+                                <?php if($item['auteur'] === $this->visage_livre_model->get_user_connected())
+                                {
+                                ?>
+                                    <a class="trashIconComment cursorPointer"
+                                       onclick="window.location='<?php echo site_url("visage_livre/delete_comment/" . $ref); ?>'">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 <?php
+                                }
                             echo '</div>';
                         ?>
 
