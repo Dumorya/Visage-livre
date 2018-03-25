@@ -316,18 +316,28 @@ class Visage_livre_model extends CI_Model
 	//supprimer un post
 	public function visage_livre_delete_post($iddoc)
 	{
-		$data = array('iddoc'=>$iddoc);
-		$this->db->delete('_post',$data);
-		$this->db->delete('_document',$data);
+			$data = array('iddoc'=>$iddoc);
+			$this->db->delete('_post',$data);
+			$this->db->delete('_document',$data);
 	}
 
 	//supprimer un comment
 	public function visage_livre_delete_comment($iddoc)
-	{
-		$data = array('iddoc'=>$iddoc);
-		$this->db->delete('_comment',$data);
-		$this->db->delete('_document',$data);
+	{	
+			$data = array('iddoc'=>$iddoc);
+			$this->db->delete('_comment',$data);
+			$this->db->delete('_document',$data);
 	}
+	/*$sql = "select use.nickname from visagelivre._user use
+			where use.nickname != ?
+			except
+			select distinct use.nickname
+			from visagelivre._user use inner join visagelivre._friendof fri
+			on use.nickname = fri.nickname or use.nickname = fri.friend
+			where (fri.nickname = ? or fri.friend = ?)
+			and use.nickname != ?";
+		$query=$this->db->query($sql,array($name,$name,$name,$name));
+		$result=$query->result_array();*/
 	
 	//friend request
 	//envoyer une invitation d'ami, cible en param
@@ -337,13 +347,23 @@ class Visage_livre_model extends CI_Model
 		//mais doit être retransformé pour correspondre avec la base avant l'envoi
         $nickname = str_replace('%20', ' ', $nickname);
         $target   = str_replace('%20', ' ', $target);
+		
+		$sql = "select visagelivre._friendrequest.nickname from visagelivre._friendrequest 
+				where visagelivre._friendrequest.nickname = ? and visagelivre._friendrequest.target = ?";
+		$query=$this->db->query($sql,array($target, $nickname))->result_array();
+		
+		if (sizeOf($query)==0){
+			$data = array(
+				'nickname' => $nickname,
+				'target'   => $target
+			);
+			return $this->db->insert('_friendrequest',$data);
+		}else{
+			$this->visage_livre_accept_friend_request($target, $nickname);
+			
+		}
 
-		$data = array(
-			'nickname' => $nickname,
-			'target'   => $target
-		);
-
-		return $this->db->insert('_friendrequest',$data);
+		
 	}
 
 	public function visage_livre_delete_friend_request($nickname,$target)
@@ -374,14 +394,7 @@ class Visage_livre_model extends CI_Model
 			'friend' => $target
 		);
 
-        $data2 = array
-        (
-            'nickname' => $target,
-            'friend' => $nickname
-        );
-
 		$this->db->insert('_friendof',$data);
-		$this->db->insert('_friendof',$data2);
     }
 
 	public function visage_livre_delete_friend($nickname,$target)
@@ -391,7 +404,6 @@ class Visage_livre_model extends CI_Model
 			'friend' => $target
 		);
 
-		//l'inversion nickname et target est normale
 		$data2 = array(
 			'nickname' => $target,
 			'friend' => $nickname

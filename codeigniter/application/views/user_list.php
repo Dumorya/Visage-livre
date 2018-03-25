@@ -18,7 +18,7 @@
         
     </ul>
 
-    <h4>EN ATTENTE</h4>
+    <h4>DEMANDES ENVOYEES</h4>
     <hr>
 
     <ul>

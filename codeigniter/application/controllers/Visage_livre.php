@@ -134,7 +134,6 @@ class Visage_livre extends CI_Controller
 
     }
 
-	//afficher les posts et les commentaires
 
 
 	//creer un post
