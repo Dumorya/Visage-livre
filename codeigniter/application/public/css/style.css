@@ -430,6 +430,12 @@ form > label
 	margin-left: 10px;
 }
 
+.requestName
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
 /* ============== */
 /* DROP DOWN MENU */
 /* ============== */

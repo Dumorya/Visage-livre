@@ -209,24 +209,43 @@ class Visage_livre extends CI_Controller
 	
 	public function send_friend_request($nickname = 0,$target = 0)
     {
-        var_dump("je passe");
 		$this->visage_livre_model->visage_livre_send_friend_request($nickname,$target);
+
+        $data['content'] = 'page_home';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
 	}
 	
 	public function accept_friend_request($nickname,$target)
     {
 		$this->visage_livre_model->visage_livre_accept_friend_request($nickname,$target);
 		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
+
+        $data['content'] = 'friend_requests';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
 	}
 	
 	public function refuse_friend_request($nickname,$target)
     {
-		$this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
+        $this->visage_livre_model->visage_livre_delete_friend_request($nickname,$target);
+
+        $data['content'] = 'friend_requests';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
 	}
 
 	public function delete_friend($nickname,$target)
     {
-		$this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
+        $this->visage_livre_model->visage_livre_delete_friend($nickname,$target);
+
+        $data['content'] = 'page_home';
+
+        $this->load->vars($data);
+        $this->load->view('template', $data);
 	}
 
 	public function redirect_page_home()

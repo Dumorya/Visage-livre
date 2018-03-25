@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87e70185-659f-4b4d-9c53-1c16b7d15166" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" afterPath="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php" afterPath="$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/public/css/style.css" afterPath="$PROJECT_DIR$/codeigniter/application/public/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/public/js/style.js" afterPath="$PROJECT_DIR$/codeigniter/application/public/js/style.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/views/friend_requests.php" afterPath="$PROJECT_DIR$/codeigniter/application/views/friend_requests.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/codeigniter/application/views/user_list.php" afterPath="$PROJECT_DIR$/codeigniter/application/views/user_list.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Visage_livre.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Visage_livre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="717">
-              <caret line="253" column="43" lean-forward="false" selection-start-line="253" selection-start-column="43" selection-end-line="253" selection-end-column="43" />
+            <state relative-caret-position="530">
+              <caret line="241" column="5" lean-forward="false" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -30,13 +31,13 @@
       <file leaf-file-name="Visage_livre_model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="375" column="48" lean-forward="false" selection-start-line="375" selection-start-column="20" selection-end-line="375" selection-end-column="48" />
+            <state relative-caret-position="208">
+              <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
               <folding>
-                <marker date="1521975285106" expanded="true" signature="5731:6284" ph="select case " />
-                <marker date="1521975285106" expanded="true" signature="6287:6703" ph="select case " />
-                <marker date="1521975285106" expanded="true" signature="8901:8984" ph="select use.n... _" />
-                <marker date="1521975285106" expanded="true" signature="8988:9217" ph="select disti... _" />
+                <marker date="1521980907525" expanded="true" signature="5731:6284" ph="select case " />
+                <marker date="1521980907525" expanded="true" signature="6287:6703" ph="select case " />
+                <marker date="1521980907525" expanded="true" signature="8901:8984" ph="select use.n... _" />
+                <marker date="1521980907525" expanded="true" signature="8988:9217" ph="select disti... _" />
               </folding>
             </state>
           </provider>
@@ -45,7 +46,7 @@
       <file leaf-file-name="template.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="-468">
               <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding>
                 <marker date="1521920954183" expanded="true" signature="4675:4683" ph="..." />
@@ -57,9 +58,11 @@
       <file leaf-file-name="friend_requests.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/friend_requests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="648">
+              <caret line="41" column="159" lean-forward="false" selection-start-line="41" selection-start-column="115" selection-end-line="41" selection-end-column="159" />
+              <folding>
+                <marker date="1521980408313" expanded="true" signature="737:846" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +70,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="521" column="52" lean-forward="false" selection-start-line="521" selection-start-column="52" selection-end-line="521" selection-end-column="52" />
+            <state relative-caret-position="528">
+              <caret line="434" column="18" lean-forward="false" selection-start-line="434" selection-start-column="18" selection-end-line="434" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -77,8 +80,8 @@
       <file leaf-file-name="post_list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/post_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="558">
+              <caret line="31" column="194" lean-forward="false" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="194" />
               <folding />
             </state>
           </provider>
@@ -97,8 +100,8 @@
       <file leaf-file-name="user_list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/user_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" column="203" lean-forward="false" selection-start-line="30" selection-start-column="203" selection-end-line="30" selection-end-column="203" />
+            <state relative-caret-position="558">
+              <caret line="31" column="45" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -107,18 +110,18 @@
       <file leaf-file-name="display_user_info.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codeigniter/application/views/display_user_info.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="button_user_info.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codeigniter/application/views/button_user_info.php">
+      <file leaf-file-name="style.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/codeigniter/application/public/js/style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="87" />
+            <state relative-caret-position="216">
+              <caret line="12" column="68" lean-forward="false" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -128,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>trans</find>
       <find>transi</find>
       <find>delete</find>
       <find>content</find>
@@ -155,8 +157,9 @@
       <find>label</find>
       <find>coms</find>
       <find>trashIconPost</find>
-      <find>trashIconPos</find>
       <find>send</find>
+      <find>trashIconPos</find>
+      <find>je pass</find>
       <find>friend</find>
     </findStrings>
     <dirStrings>
@@ -188,16 +191,16 @@
         <option value="$PROJECT_DIR$/codeigniter/application/views/page_home.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/create_post.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/create_comment.php" />
-        <option value="$PROJECT_DIR$/codeigniter/application/public/js/style.js" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/display_comments.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/post_list.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/post_details.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/display_user_info.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/public/css/style.css" />
-        <option value="$PROJECT_DIR$/codeigniter/application/views/user_list.php" />
-        <option value="$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/views/friend_requests.php" />
+        <option value="$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php" />
         <option value="$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php" />
+        <option value="$PROJECT_DIR$/codeigniter/application/views/user_list.php" />
+        <option value="$PROJECT_DIR$/codeigniter/application/public/js/style.js" />
       </list>
     </option>
   </component>
@@ -350,12 +353,12 @@
       <workItem from="1521724243644" duration="18761000" />
       <workItem from="1521833142787" duration="3406000" />
       <workItem from="1521896053825" duration="34124000" />
-      <workItem from="1521972649490" duration="2680000" />
+      <workItem from="1521972649490" duration="9528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90686000" />
+    <option name="totallyTimeSpent" value="97534000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -588,16 +591,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/views/create_comment.php" />
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/public/js/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/views/page_home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -623,14 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/display_user_info.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/config/user_agents.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -641,8 +626,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="521" column="52" lean-forward="false" selection-start-line="521" selection-start-column="52" selection-end-line="521" selection-end-column="52" />
+        <state relative-caret-position="528">
+          <caret line="434" column="18" lean-forward="false" selection-start-line="434" selection-start-column="18" selection-end-line="434" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding>
+            <marker date="1521920954183" expanded="true" signature="4675:4683" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/post_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="194" lean-forward="false" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="194" />
           <folding />
         </state>
       </provider>
@@ -655,57 +658,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/user_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="203" lean-forward="false" selection-start-line="30" selection-start-column="203" selection-end-line="30" selection-end-column="203" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/post_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/models/Visage_livre_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="375" column="48" lean-forward="false" selection-start-line="375" selection-start-column="20" selection-end-line="375" selection-end-column="48" />
+        <state relative-caret-position="208">
+          <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding>
-            <marker date="1521975285106" expanded="true" signature="5731:6284" ph="select case " />
-            <marker date="1521975285106" expanded="true" signature="6287:6703" ph="select case " />
-            <marker date="1521975285106" expanded="true" signature="8901:8984" ph="select use.n... _" />
-            <marker date="1521975285106" expanded="true" signature="8988:9217" ph="select disti... _" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/friend_requests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding>
-            <marker date="1521920954183" expanded="true" signature="4675:4683" ph="..." />
+            <marker date="1521980907525" expanded="true" signature="5731:6284" ph="select case " />
+            <marker date="1521980907525" expanded="true" signature="6287:6703" ph="select case " />
+            <marker date="1521980907525" expanded="true" signature="8901:8984" ph="select use.n... _" />
+            <marker date="1521980907525" expanded="true" signature="8988:9217" ph="select disti... _" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codeigniter/application/controllers/Visage_livre.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="253" column="43" lean-forward="false" selection-start-line="253" selection-start-column="43" selection-end-line="253" selection-end-column="43" />
+        <state relative-caret-position="530">
+          <caret line="241" column="5" lean-forward="false" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/friend_requests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="41" column="159" lean-forward="false" selection-start-line="41" selection-start-column="115" selection-end-line="41" selection-end-column="159" />
+          <folding>
+            <marker date="1521980408313" expanded="true" signature="737:846" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/user_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="45" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/views/display_user_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/codeigniter/application/public/js/style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="68" lean-forward="false" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -328,9 +328,14 @@ class Visage_livre_model extends CI_Model
 	//envoyer une invitation d'ami, cible en param
 	public function visage_livre_send_friend_request($nickname,$target)
 	{
+		//remplace le %20 qui est un espace transformé lors du passage dans l'url
+		//mais doit être retransformé pour correspondre avec la base avant l'envoi
+        $nickname = str_replace('%20', ' ', $nickname);
+        $target   = str_replace('%20', ' ', $target);
+
 		$data = array(
 			'nickname' => $nickname,
-			'target' => $target
+			'target'   => $target
 		);
 
 		return $this->db->insert('_friendrequest',$data);
@@ -338,9 +343,14 @@ class Visage_livre_model extends CI_Model
 
 	public function visage_livre_delete_friend_request($nickname,$target)
 	{
+        //remplace le %20 qui est un espace transformé lors du passage dans l'url
+        //mais doit être retransformé pour correspondre avec la base avant l'envoi
+        $nickname = str_replace('%20', ' ', $nickname);
+        $target   = str_replace('%20', ' ', $target);
+
 		$data = array(
-			'nickname' => $target,
-			'target' => $nickname
+			'nickname' => $nickname,
+			'target'   => $target
 		);
 
 		return $this->db->delete('_friendrequest',$data);
@@ -348,35 +358,42 @@ class Visage_livre_model extends CI_Model
 
 	public function visage_livre_accept_friend_request($nickname,$target)
 	{
-//		$data = array
-//		(
-//			'nickname' => $nickname,
-//			'friend' => $friend
-//		);
-//
-//		return $this->db->insert('_friendof',$data);
+        //remplace le %20 qui est un espace transformé lors du passage dans l'url
+        //mais doit être retransformé pour correspondre avec la base avant l'envoi
+        $nickname = str_replace('%20', ' ', $nickname);
+        $target   = str_replace('%20', ' ', $target);
+
+		$data = array
+		(
+			'nickname' => $nickname,
+			'friend' => $target
+		);
+
+		return $this->db->insert('_friendof',$data);
 	}
 
 	public function visage_livre_delete_friend($nickname,$target)
 	{
-//		$data = array(
-//			'nickname' => $nickname,
-//			'friend' => $friend
-//		);
-//
-//		$data2 = array(
-//			'nickname' => $friend,
-//			'friend' => $nickname
-//		);
-//
-//		$this->db->delete('_friendof',$data);
-//		$this->db->delete('_friendof',$data2);
+		$data = array(
+			'nickname' => $nickname,
+			'friend' => $target
+		);
+
+		//l'inversion nickname et target est normale
+		$data2 = array(
+			'nickname' => $target,
+			'friend' => $nickname
+		);
+
+		$this->db->delete('_friendof',$data);
+		$this->db->delete('_friendof',$data2);
 	}
 
 	public function visage_livre_display_request()
 	{
         $this->db->select();
         $this->db->from('_friendrequest');
+        $this->db->where('target', $this->visage_livre_model->get_user_connected());
         $query = $this->db->get();
 
         return $query->result_array();
