@@ -24,6 +24,12 @@ class Visage_livre_model extends CI_Model
         return $this->db->insert('_user',$data);
     }
 
+    public function delete_user($nickname)
+    {
+        $this->db->where('nickname', $nickname);
+        $this->db->delete('_user');
+	}
+
     public function connection($connect_nickname,$connect_pass)
     {
         $this->db->select('nickname,pass');

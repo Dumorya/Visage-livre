@@ -10,6 +10,10 @@
             <p><?php echo $this->session->userdata('connect_pass'); ?></p>
             <label>Adresse mail: </label>
             <p><?php echo $this->session->userdata('connect_email'); ?></p>
+
+            <hr>
+
+            <button onclick="window.location='<?php echo site_url("visage_livre/delete_user");?>'">Supprimer mon compte</button>
         </div>
 
         <hr>
@@ -55,8 +59,18 @@
                             }
                         } ?>
 
-                        <?php $this->load->view('create_comment');?>
-                    </li>
+                        <div class="comment">
+                            <?php echo form_open('visage_livre/create_comment?iddoc='.$iddoc);?>
+                            <div class="input-group mb-3">
+                                <input type ="text" name ="content" placeholder="Votre commentaire..." class="newComment form-control" required/>
+                                <div class="input-group-append">
+                                    <button class="sendCommentButton cursorPointer" type="submit" name="submit">
+                                        <i class="fa fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            </form >
+                        </div>                    </li>
                 <?php }?>
             </ul>
         </div>

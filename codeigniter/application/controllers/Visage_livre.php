@@ -98,6 +98,17 @@ class Visage_livre extends CI_Controller
 		$this->load->view('template');
 	}
 
+	public function delete_user()
+    {
+        $this->visage_livre_model->delete_user($this->session->userdata('connect_nickname'));
+        $this->logout();
+
+        $data['content'] = 'page_connection';
+
+        $this->load->vars($data);
+        $this->load->view('template');
+    }
+
 	public function display_user_info()
 	{
 		$data['content'] = 'display_user_info';
