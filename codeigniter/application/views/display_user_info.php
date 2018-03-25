@@ -1,5 +1,8 @@
 <div class="col-lg-8 offset-lg-2 globalContent">
     <div class="col-lg-10 offset-lg-1">
+        <a class="arrowReturn cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/redirect_page_home");?>'">
+            <i class="fa fa-long-arrow-left fa-4x"></i>
+        </a>
         <h2 class="textAlign profileTitle">Mon profil</h2>
 
         <div class="userInfos">
@@ -33,7 +36,28 @@
                             <?php $iddoc = $post_item['iddoc']; ?>
                             <?php echo '<h3>'.$post_item['auteur'].'</h3>'; ?>
                             <?php echo '<p class="postDate">'.$post_item['create_date'].'</p>'; ?><br/>
-                            <p class="postContent"><?php echo $post_item['content'];?></p>
+                            <p class="postContent">
+                                <?php echo $post_item['content'];?>
+                                <?php
+                                $fullPostList = $this->visage_livre_model->visage_livre_get_full_user_post($iddoc);
+
+                                foreach($fullPostList as $fullPostItem)
+                                {
+                                if($fullPostItem['iddoc'] === $iddoc)
+                                {
+                                if(strlen($fullPostItem['content']) > 33)
+                                {
+                                ?>
+                            <div>
+                                <a class="seeMoreLink cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/see_more?iddoc=".$fullPostItem['iddoc']);?>'">Voir plus</a>
+                            </div>
+                        <?php
+                        }
+                        }
+
+                        }
+                        ?>
+                            </p>
                         </div>
 
                         <hr>
@@ -54,10 +78,15 @@
 
                                 echo '<a class="answerComment cursorPointer" onclick="displayNewComment()">Répondre</a>';
                                 ?>
-                                <a class="trashIconComment cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/delete_comment/".$ref);?>'">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                                <?php
+                                <?php if($item['auteur'] === $this->visage_livre_model->get_user_connected())
+                                    {
+                                    ?>
+                                        <a class="trashIconComment cursorPointer"
+                                           onclick="window.location='<?php echo site_url("visage_livre/delete_comment/" . $ref); ?>'">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    <?php
+                                    }
                                 echo '</div>';
                                 ?>
 

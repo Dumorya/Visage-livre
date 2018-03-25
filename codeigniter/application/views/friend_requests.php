@@ -10,8 +10,11 @@ $requests = $this->visage_livre_model->visage_livre_display_request();
 
 ?>
 
-<div class="col-lg-8 offset-lg-2 globalContent">
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 offset-md-2 offset-lg-2 globalContent">
     <div class="col-lg-10 offset-lg-1">
+        <a class="arrowReturn cursorPointer" onclick="window.location='<?php echo site_url("visage_livre/redirect_page_home");?>'">
+            <i class="fa fa-long-arrow-left fa-4x"></i>
+        </a>
         <?php
             if(count($requests) > 1)
             {

@@ -1,4 +1,5 @@
 <div class="userList">
+    <div class="wrapUserList">
     <h4>MES AMIS</h4>
     <hr>
 
@@ -53,4 +54,5 @@
         <?php }
         ?>
 	</ul>
+    </div>
 </div>

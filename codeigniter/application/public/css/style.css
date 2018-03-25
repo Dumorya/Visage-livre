@@ -500,6 +500,21 @@ form > label
 	border-radius: 20px;
 }
 
+.wrapUserList
+{
+	width:15vw;
+}
+
+.arrowReturn
+{
+	color: #3B5998 !important;
+}
+
+.arrowReturn:hover
+{
+	color: #1a2947 !important;
+}
+
 /* ============== */
 /* DROP DOWN MENU */
 /* ============== */

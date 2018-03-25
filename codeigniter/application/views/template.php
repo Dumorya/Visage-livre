@@ -83,7 +83,7 @@
         <?php if($this->session->userdata('connect_nickname') != null)
             {
         ?>
-                <div class="col-lg-2" id="userList">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="userList">
                     <?php $this->load->view('user_list'); ?>
                 </div>
         <?php
