@@ -1,5 +1,5 @@
 <div>
-	<h2 class="textAlign">Fil d'actualité</h2>
+	<h2 class="textAlign">Fil d'actualités</h2>
 
     <div class="marginPosts">
         <ul>
