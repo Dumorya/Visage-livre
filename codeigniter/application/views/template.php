@@ -19,7 +19,9 @@
             </div>
 
             <?php
-                if($this->session->userdata('connect_nickname') != null)
+            $requests = $this->visage_livre_model->visage_livre_display_request();
+
+            if($this->session->userdata('connect_nickname') != null)
                 {
             ?>
                     <div class="row alignItems">
@@ -31,6 +33,12 @@
                         <div class="marginIconNavbar">
                             <a onclick="window.location='<?php echo site_url("visage_livre/friend_requests");?>'" class="cursorPointer">
                                 <i class="fa fa-users fa-2x"></i>
+                                <?php
+                                    if(count($requests) > 0)
+                                    {
+                                        echo '<span class="nbRequestsNavbar">'.count($requests).'</span>';
+                                    }
+                                ?>
                             </a>
                         </div>
                         <span class="separationLine"></span>

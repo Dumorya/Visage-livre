@@ -13,7 +13,7 @@
 
             <hr>
 
-            <button onclick="window.location='<?php echo site_url("visage_livre/delete_user");?>'">Supprimer mon compte</button>
+            <button class="deleteAccount" onclick="window.location='<?php echo site_url("visage_livre/delete_user");?>'">Supprimer mon compte</button>
         </div>
 
         <hr>

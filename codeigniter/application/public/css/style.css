@@ -269,7 +269,7 @@ form > label
 	border-color: #29487d;
 }
 
-.post
+.post, .requests
 {
 	border: 1px solid #ced4da;
 	background-color: white;
@@ -381,6 +381,7 @@ form > label
 {
 	font-size: 0.8em;
 	color: #9ea7aa;
+	margin-bottom: 0px !important;
 }
 
 .marginIconNavbar
@@ -434,6 +435,69 @@ form > label
 {
 	font-size: 1.3em;
 	font-weight: bold;
+	margin-bottom: 0px !important;
+}
+
+.deleteAccount
+{
+	background-color: #e53935;
+	color: white;
+
+	border: 1px solid #ab000d;
+	border-radius: 2px;
+	box-sizing: content-box;
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	justify-content: center;
+	text-align: center;
+	text-shadow: none;
+	vertical-align: middle;
+
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	white-space: nowrap;
+
+	line-height: 22px;
+	padding: 5px 20px;
+
+	margin-top: 20px;
+
+	transition: 200ms cubic-bezier(.08,.52,.52,1) background-color,
+	200ms cubic-bezier(.08,.52,.52,1) box-shadow,
+	200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+.deleteAccount:hover
+{
+	background-color: #ab000d;
+	border-color: #9a0007;
+
+	transition: 200ms cubic-bezier(.08,.52,.52,1) background-color,
+	200ms cubic-bezier(.08,.52,.52,1) box-shadow,
+	200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+.confirmFriendRequest
+{
+	margin-right: 20px;
+}
+
+.buttonsFriendRequest
+{
+	margin-left: 50px;
+}
+
+.nbRequestsNavbar
+{
+	background-color: #e53935;
+	z-index: 100;
+	color: white;
+	font-weight: bold;
+	padding: 0px 5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 20px;
 }
 
 /* ============== */

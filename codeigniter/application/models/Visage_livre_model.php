@@ -246,7 +246,7 @@ class Visage_livre_model extends CI_Model
 
 		return $query->result_array();
 	}
-	
+
 	//affiche les demandes d'amitié reçues par nickname
 	public function visage_livre_get_friend_request($nickname)
 	{

@@ -15,36 +15,41 @@ $requests = $this->visage_livre_model->visage_livre_display_request();
         <?php
             if(count($requests) > 1)
             {
-                echo '<h2>Répondre aux ';
+                echo '<h2 class="textAlign profileTitle">Répondre aux ';
                 echo (count($requests));
                 echo ' invitations</h2>';
             }
             elseif(count($requests) == 1)
             {
-                echo '<h2>Répondre à l\'invitation</h2>';
+                echo '<h2 class="textAlign profileTitle">Répondre à l\'invitation</h2>';
             }
             else
             {
-                echo '<h2>Vous n\'avez pas d\'invitation</h2>';
+                echo '<h2 class="textAlign profileTitle">Vous n\'avez pas d\'invitation</h2>';
             }
         ?>
-        <div class="alignItems">
+        <div class="requests paddingPost">
             <?php
                 foreach($requests as $request)
                 {
-                    echo '<div>';
-                        echo '<p class="requestName">'.$request['nickname'].'</p>';
-                        echo '<p class="postDate">'.$request['request_date'].'</p>';
-                    echo '</div>';
                     echo '<div class="alignItems">';
-                    ?>
-                        <button onclick="window.location='<?php echo site_url("visage_livre/accept_friend_request/".$request['nickname'].'/'.$request['target']);?>'">Confirmer</button>
-                        <button onclick="window.location='<?php echo site_url("visage_livre/refuse_friend_request/".$request['nickname'].'/'.$request['target']);?>'">Supprimer l'invitation</button>
-                    <?php
+                        echo '<div>';
+                            echo '<p class="requestName">'.$request['nickname'].'</p>';
+                            echo '<p class="postDate">'.$request['request_date'].'</p>';
+                        echo '</div>';
+                        echo '<div class="alignItems buttonsFriendRequest">';
+                        ?>
+                                <button class="postSubmit confirmFriendRequest" onclick="window.location='<?php echo site_url("visage_livre/accept_friend_request/".$request['nickname'].'/'.$request['target']);?>'">Confirmer</button>
+                                <button class="deleteAccount" onclick="window.location='<?php echo site_url("visage_livre/refuse_friend_request/".$request['nickname'].'/'.$request['target']);?>'">Supprimer l'invitation</button>
+                        <?php
+                        echo '</div>';
                     echo '</div>';
+                    echo '<hr>';
                 }
+
             ?>
         </div>
+
     </div>
 </div>
 
