@@ -403,7 +403,7 @@ class Visage_livre_model extends CI_Model
 
 	public function visage_livre_display_request()
 	{
-        $this->db->select();
+        $this->db->select("nickname, target, to_char(request_date, 'dd/mm/yy HH24:MI') as request_date");
         $this->db->from('_friendrequest');
         $this->db->where('target', $this->visage_livre_model->get_user_connected());
         $query = $this->db->get();
