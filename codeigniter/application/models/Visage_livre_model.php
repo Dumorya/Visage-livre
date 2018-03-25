@@ -228,8 +228,13 @@ class Visage_livre_model extends CI_Model
 			from visagelivre._user use inner join visagelivre._friendof fri
 			on use.nickname = fri.nickname or use.nickname = fri.friend
 			where (fri.nickname = ? or fri.friend = ?)
-			and use.nickname != ?";
-		$query=$this->db->query($sql,array($name,$name,$name,$name));
+			and use.nickname != ?
+			except
+			select distinct fri.target
+			from visagelivre._friendrequest fri
+			where fri.nickname = ?
+			";
+		$query=$this->db->query($sql,array($name,$name,$name,$name,$name));
 		$result=$query->result_array();
 		return $result;
 	}
@@ -360,6 +365,7 @@ class Visage_livre_model extends CI_Model
 			return $this->db->insert('_friendrequest',$data);
 		}else{
 			$this->visage_livre_accept_friend_request($target, $nickname);
+			$this->visage_livre_delete_friend_request($target, $nickname);
 			
 		}
 
@@ -429,6 +435,7 @@ class Visage_livre_model extends CI_Model
         $this->db->from('_friendrequest');
         $this->db->where('nickname', $this->visage_livre_model->get_user_connected());
         $query = $this->db->get();
+		
 
         return $query->result_array();
     }
